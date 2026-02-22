@@ -57,13 +57,17 @@
 
   .timeline{border:1px solid var(--border2);border-radius:8px;padding:20px;background:var(--surface);margin-bottom:24px}
   .timeline-title{font-size:9pt;font-weight:600;margin-bottom:16px}
-  .timeline-track{position:relative;height:8px;background:var(--border2);border-radius:4px;margin-bottom:24px}
-  .timeline-marker{position:absolute;top:-12px;display:flex;flex-direction:column;align-items:center}
-  .timeline-marker .dot{width:10px;height:10px;border-radius:50%;margin-bottom:4px}
+  .timeline-track{position:relative;height:8px;background:var(--border2);border-radius:4px;margin-bottom:32px}
+  .timeline-progress{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--accent),rgba(157,127,59,0.4));border-radius:4px}
+  .timeline-marker{position:absolute;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center}
+  .timeline-marker .dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--border)}
   .timeline-marker .dot.red{background:var(--red)}
   .timeline-marker .dot.amber{background:var(--amber)}
   .timeline-marker .dot.green{background:var(--green)}
-  .timeline-marker .label{font-family:var(--m);font-size:7pt;color:var(--muted);white-space:nowrap}
+  .timeline-marker .dot.today{background:var(--accent);box-shadow:0 0 0 3px rgba(157,127,59,0.25)}
+  .timeline-marker .label{font-family:var(--m);font-size:7pt;color:var(--muted);white-space:nowrap;margin-top:14px}
+  .timeline-marker .label-top{font-family:var(--m);font-size:6.5pt;color:var(--red);white-space:nowrap;margin-bottom:14px;font-weight:600}
+  .timeline-marker .label-today{font-family:var(--m);font-size:7pt;color:var(--accent);white-space:nowrap;margin-top:14px;font-weight:600}
   .timeline-month{font-family:var(--m);font-size:6.5pt;color:var(--light);display:flex;justify-content:space-between}
 
   .summary-card{border:1px solid var(--accent);border-radius:8px;padding:16px;background:rgba(200,170,80,0.03);margin-bottom:24px}
@@ -221,21 +225,43 @@
   <div class="timeline">
     <div class="timeline-title">Alle Fristen auf einen Blick</div>
     <div class="timeline-track">
-      <div class="timeline-marker" style="left:4%">
+      <!-- Vergangene Zeit -->
+      <div class="timeline-progress" style="width:14.5%"></div>
+      <!-- Heute: 22. Feb = Tag 53/365 = 14.5% -->
+      <div class="timeline-marker" style="left:14.5%">
+        <div class="dot today"></div>
+        <div class="label-today">Heute</div>
+      </div>
+      <!-- 28. Feb = Tag 59/365 = 16.2% -->
+      <div class="timeline-marker" style="left:16.2%">
+        <div class="label-top">6 Tage!</div>
         <div class="dot red"></div>
         <div class="label">28.02</div>
       </div>
-      <div class="timeline-marker" style="left:13%">
+      <!-- 31. Mär = Tag 90/365 = 24.7% -->
+      <div class="timeline-marker" style="left:24.7%">
         <div class="dot amber"></div>
         <div class="label">31.03</div>
       </div>
-      <div class="timeline-marker" style="left:22%">
+      <!-- 15. Apr = Tag 105/365 = 28.8% -->
+      <div class="timeline-marker" style="left:28.8%">
         <div class="dot amber"></div>
         <div class="label">15.04</div>
       </div>
-      <div class="timeline-marker" style="left:60%">
+      <!-- 30. Jun = Tag 181/365 = 49.6% -->
+      <div class="timeline-marker" style="left:49.6%">
+        <div class="dot amber"></div>
+        <div class="label">30.06</div>
+      </div>
+      <!-- 31. Aug = Tag 243/365 = 66.6% -->
+      <div class="timeline-marker" style="left:66.6%">
         <div class="dot green"></div>
         <div class="label">31.08</div>
+      </div>
+      <!-- 30. Sep = Tag 273/365 = 74.8% -->
+      <div class="timeline-marker" style="left:74.8%">
+        <div class="dot green"></div>
+        <div class="label">30.09</div>
       </div>
     </div>
     <div class="timeline-month">
