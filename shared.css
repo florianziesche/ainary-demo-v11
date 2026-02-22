@@ -1,19 +1,51 @@
 /* Shared Design Tokens + Base Styles — Ainary Glashütte Portal */
 :root {
+  /* ── Colors ── */
   --text: #1a1a1a;
   --text2: #444;
   --muted: #777;
-  --light: #bbb;
+  --light: #888;
   --border: #d0d0d0;
   --border2: #e8e8e8;
   --surface: #fafafa;
   --accent: #9d7f3b;
+  --accent-pale: rgba(200,170,80,0.08);
   --green: #2d8a4e;
   --red: #c0392b;
   --amber: #b45309;
   --blue: #2b6cb0;
+
+  /* ── Fonts ── */
   --f: 'Inter', -apple-system, sans-serif;
   --m: 'JetBrains Mono', monospace;
+
+  /* ── Typography Scale ── */
+  --fs-doc-title: 16pt;
+  --fs-sec-title: 13pt;
+  --fs-card-title: 10pt;
+  --fs-body: 10pt;
+  --fs-desc: 8.5pt;
+  --fs-meta: 8pt;
+  --fs-label: 7pt;
+  --fs-tag: 6.5pt;
+  --fs-kpi-val: 14pt;
+  --fs-kpi-label: 8.5pt;
+  --fs-kpi-sub: 7.5pt;
+
+  /* ── Layout ── */
+  --page-max: 820px;
+  --page-pad: 32px 48px 48px;
+  --page-pad-mobile: 20px 16px;
+
+  /* ── Spacing ── */
+  --sec-gap: 32px;
+  --card-gap: 12px;
+  --card-pad: 14px 16px;
+  --card-radius: 8px;
+
+  /* ── Cards ── */
+  --card-border: 1px solid var(--border2);
+  --card-border-hl: 1.5px solid var(--accent);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
