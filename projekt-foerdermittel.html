@@ -61,18 +61,18 @@
 
   .timeline{border:1px solid var(--border2);border-radius:8px;padding:20px;background:var(--surface);margin-bottom:24px}
   .timeline-title{font-size:9pt;font-weight:600;margin-bottom:16px}
-  .timeline-track{position:relative;height:8px;background:var(--border2);border-radius:4px;margin-bottom:32px}
-  .timeline-progress{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--accent),rgba(157,127,59,0.4));border-radius:4px}
-  .timeline-marker{position:absolute;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center}
-  .timeline-marker .dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--border)}
+  .timeline-track{position:relative;height:8px;background:var(--border2);border-radius:4px;margin-bottom:40px;margin-top:16px}
+  .timeline-progress{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--accent),rgba(157,127,59,0.4));border-radius:4px;z-index:1}
+  .timeline-marker{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);z-index:2}
+  .timeline-marker .dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--border);display:block}
   .timeline-marker .dot.red{background:var(--red)}
   .timeline-marker .dot.amber{background:var(--amber)}
   .timeline-marker .dot.green{background:var(--green)}
   .timeline-marker .dot.today{background:var(--accent);box-shadow:0 0 0 3px rgba(157,127,59,0.25)}
-  .timeline-marker .label{font-family:var(--m);font-size:7pt;color:var(--muted);white-space:nowrap;margin-top:14px}
-  .timeline-marker .label-top{font-family:var(--m);font-size:6pt;color:#fff;background:var(--red);border-radius:3px;padding:1px 4px;white-space:nowrap;margin-top:2px;font-weight:600}
-  .timeline-marker .label-today{font-family:var(--m);font-size:7pt;color:var(--accent);white-space:nowrap;margin-top:14px;font-weight:600}
-  .timeline-month{font-family:var(--m);font-size:6.5pt;color:var(--light);display:flex;justify-content:space-between}
+  .timeline-marker .label{position:absolute;top:16px;left:50%;transform:translateX(-50%);font-family:var(--m);font-size:7pt;color:var(--muted);white-space:nowrap}
+  .timeline-marker .label-top{position:absolute;top:20px;left:50%;transform:translateX(-50%);font-family:var(--m);font-size:6pt;color:#fff;background:var(--red);border-radius:3px;padding:1px 4px;white-space:nowrap;font-weight:600}
+  .timeline-marker .label-today{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:var(--m);font-size:7pt;color:var(--accent);white-space:nowrap;font-weight:600}
+  .timeline-month{font-family:var(--m);font-size:6.5pt;color:var(--light);display:flex;justify-content:space-between;margin-top:8px}
 
   .summary-card{border:1px solid var(--accent);border-radius:8px;padding:16px;background:rgba(200,170,80,0.03);margin-bottom:24px}
   .summary-title{font-size:9pt;font-weight:600;color:var(--accent);margin-bottom:12px}
@@ -250,7 +250,7 @@
       <!-- Heute: 22. Feb = Tag 53/365 = 14.5% -->
       <div class="timeline-marker" style="left:14.5%">
         <div class="dot today"></div>
-        <div class="label-today" style="transform:translateX(-60%)">Heute</div>
+        <div class="label-today">Heute</div>
       </div>
       <!-- 28. Feb = Tag 59/365 = 16.2% -->
       <div class="timeline-marker" style="left:16.2%">
