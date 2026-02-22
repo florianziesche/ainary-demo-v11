@@ -30,7 +30,9 @@
     --font: var(--f);
     --mono: var(--m);
   }
+  html { scroll-behavior: smooth; }
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  .section[id] { scroll-margin-top: 16px; }
   body { font-family: var(--f); color: var(--text); font-size: 10pt; line-height: 1.65; background: #fff; -webkit-font-smoothing: antialiased; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
@@ -274,6 +276,24 @@
   .beipack-col.no li::before { background: var(--red); }
   .beipack-meta { margin-top: 16px; font-family: var(--m); font-size: 7pt; color: var(--muted); line-height: 1.8; }
   @media (max-width: 600px) { .beipack-grid { grid-template-columns: 1fr; } }
+
+  /* Side Nav */
+  .dossier-layout { display: grid; grid-template-columns: 180px 1fr; gap: 32px; }
+  .side-nav { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; }
+  .side-nav a {
+    display: block; font-family: var(--m); font-size: 7pt; color: var(--muted);
+    padding: 4px 0; text-decoration: none; transition: color .12s; line-height: 1.5;
+  }
+  .side-nav a:hover { color: var(--text); text-decoration: none; }
+  .side-nav a.active { color: var(--accent); font-weight: 500; }
+  .side-nav .nav-num { color: var(--light); margin-right: 4px; }
+  .side-nav-title { font-family: var(--m); font-size: 6.5pt; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--light); margin-bottom: 8px; }
+  @media (max-width: 900px) {
+    .dossier-layout { grid-template-columns: 1fr; }
+    .side-nav { position: static; display: flex; flex-wrap: wrap; gap: 4px 12px; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--border2); max-height: none; }
+    .side-nav-title { width: 100%; margin-bottom: 4px; }
+    .side-nav a { padding: 2px 0; }
+  }
 </style>
 </head>
 <body>
@@ -340,8 +360,33 @@
   </div>
 </div>
 
+<!-- ======== LAYOUT ======== -->
+<div class="dossier-layout">
+
+<!-- Side Nav -->
+<nav class="side-nav" id="sideNav">
+  <div class="side-nav-title">Inhalt</div>
+  <a href="#s01"><span class="nav-num">01</span> Summary</a>
+  <a href="#s02"><span class="nav-num">02</span> Steckbrief</a>
+  <a href="#s03"><span class="nav-num">03</span> Karriere</a>
+  <a href="#s04"><span class="nav-num">04</span> Wahlergebnis</a>
+  <a href="#s05"><span class="nav-num">05</span> Pol. Profil</a>
+  <a href="#s06"><span class="nav-num">06</span> Krit. Positionen</a>
+  <a href="#s07"><span class="nav-num">07</span> Ext. Kritik</a>
+  <a href="#s08"><span class="nav-num">08</span> Zitate</a>
+  <a href="#s09"><span class="nav-num">09</span> Sentiment</a>
+  <a href="#s10"><span class="nav-num">10</span> Social Media</a>
+  <a href="#s11"><span class="nav-num">11</span> Altenberg</a>
+  <a href="#s12"><span class="nav-num">12</span> Vergleich</a>
+  <a href="#s13"><span class="nav-num">13</span> Quellen</a>
+  <a href="#s14"><span class="nav-num">14</span> Trust Score</a>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
 <!-- ======== EXECUTIVE SUMMARY ======== -->
-<div class="section">
+<div class="section" id="s01">
   <div class="section-title">01 — Executive Summary</div>
   <div class="card">
     <p><span class="ev ev-e">E</span> <strong>André Barth</strong> (* 26.10.1969, Dresden) ist seit Januar 2026 Bürgermeister der Stadt Altenberg im Osterzgebirge — der zweite AfD-Bürgermeister in Sachsen. <span class="ev ev-e">E</span> Jurist (Zulassung 2015 verloren), ehemaliges SPD-Mitglied, seit 2014 durchgehend im Sächsischen Landtag. <span class="ev ev-e">E</span> Gewann mit <strong>61,8%</strong> im ersten Wahlgang bei 70,8% Wahlbeteiligung.</p>
@@ -351,7 +396,7 @@
 </div>
 
 <!-- ======== STECKBRIEF ======== -->
-<div class="section">
+<div class="section" id="s01">
   <div class="section-title">02 — Steckbrief</div>
   <div class="card">
     <div class="profile-grid">
@@ -372,7 +417,7 @@
 </div>
 
 <!-- ======== TIMELINE ======== -->
-<div class="section">
+<div class="section" id="s02">
   <div class="section-title">03 — Karriere-Timeline</div>
   <div class="card">
     <div class="timeline">
@@ -462,7 +507,7 @@
 </div>
 
 <!-- ======== WAHLERGEBNIS ======== -->
-<div class="section">
+<div class="section" id="s03">
   <div class="section-title">04 — Wahlergebnis 25.01.2026</div>
   <div class="card">
     <div class="election-bar">
@@ -501,7 +546,7 @@
 </div>
 
 <!-- ======== POLITISCHES PROFIL ======== -->
-<div class="section">
+<div class="section" id="s04">
   <div class="section-title">05 — Politisches Profil</div>
   <div class="grid-2">
     <div class="card">
@@ -552,7 +597,7 @@
 </div>
 
 <!-- ======== KRITISCHE POSITIONEN ======== -->
-<div class="section">
+<div class="section" id="s05">
   <div class="section-title">06 — Kritische Positionen & Eigene Aussagen</div>
   
   <div class="card" style="background:var(--surface); margin-bottom:20px;">
@@ -721,7 +766,7 @@
 </div>
 
 <!-- ======== KONTROVERSEN (EXTERN) ======== -->
-<div class="section">
+<div class="section" id="s06">
   <div class="section-title">07 — Externe Kritik & Einordnungen</div>
   
   <div class="card" style="border-left: 3px solid var(--red);">
@@ -769,7 +814,7 @@
 </div>
 
 <!-- ======== ZITATE-SAMMLUNG ======== -->
-<div class="section">
+<div class="section" id="s07">
   <div class="section-title">08 — Zitate-Sammlung</div>
   
   <div class="quote-block">
@@ -839,7 +884,7 @@
 </div>
 
 <!-- ======== MEDIEN-SENTIMENT ======== -->
-<div class="section">
+<div class="section" id="s08">
   <div class="section-title">09 — Medien-Sentiment-Analyse</div>
   <div class="card">
     <p class="mb-8"><span class="ev ev-j">J</span> Analyse der Berichterstattung von 18 Medienquellen zur BM-Wahl. Kategorisierung: <span class="tag tag-red">Kritisch</span> <span class="tag tag-yellow">Neutral/Analytisch</span> <span class="tag tag-green">Positiv/Unterstützend</span></p>
@@ -891,7 +936,7 @@
 </div>
 
 <!-- ======== SOCIAL MEDIA ======== -->
-<div class="section">
+<div class="section" id="s09">
   <div class="section-title">10 — Social Media Audit</div>
   
   <div class="social-grid">
@@ -973,7 +1018,7 @@
 </div>
 
 <!-- ======== STADT ALTENBERG ======== -->
-<div class="section">
+<div class="section" id="s10">
   <div class="section-title">11 — Stadt Altenberg — Deep Dive</div>
   
   <div class="card">
@@ -1054,7 +1099,7 @@
 </div>
 
 <!-- ======== VERGLEICH GLASHÜTTE ======== -->
-<div class="section">
+<div class="section" id="s11">
   <div class="section-title">12 — Strukturvergleich: Altenberg vs. Glashütte</div>
   <div class="card">
     <table>
@@ -1098,7 +1143,7 @@
 </div>
 
 <!-- ======== QUELLEN ======== -->
-<div class="section">
+<div class="section" id="s12">
   <div class="section-title">13 — Quellenverzeichnis (35 Quellen)</div>
   <div class="card">
     <table>
@@ -1143,7 +1188,7 @@
 </div>
 
 <!-- ======== TRUST SCORE ======== -->
-<div class="section">
+<div class="section" id="s13">
   <div class="section-title">14 — Ainary Trust Score</div>
   <div class="card" style="text-align:center;">
     <div class="score-ring" style="background: conic-gradient(var(--accent) 0% 78%, var(--card-border) 78% 100%); margin: 20px auto;">
@@ -1178,6 +1223,9 @@
   </div>
 </div>
 
+</div><!-- /main-content -->
+</div><!-- /dossier-layout -->
+
 <!-- ======== FOOTER ======== -->
 <div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--border); display:flex; justify-content:center; gap:6px; flex-wrap:wrap; font-family:var(--m); font-size:7pt; color:var(--light);">
   <span>Ainary Intelligence</span> <span style="color:var(--border2)">·</span>
@@ -1188,5 +1236,30 @@
 </div>
 
 </div><!-- /page -->
+
+<script>
+// Scroll spy for side nav
+const navLinks = document.querySelectorAll('.side-nav a');
+const sections = document.querySelectorAll('.section[id]');
+function updateNav() {
+  let current = '';
+  sections.forEach(s => {
+    if (s.getBoundingClientRect().top <= 60) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateNav, {passive: true});
+updateNav();
+// Smooth scroll
+navLinks.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth',block:'start'});
+    history.pushState(null, '', a.getAttribute('href'));
+  });
+});
+</script>
 </body>
 </html>
