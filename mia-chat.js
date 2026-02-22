@@ -13,6 +13,56 @@ const MIA_R={
 "empfehlung":["Hier ist eine Vorlage f\u00fcr eine Empfehlung an einen Kollegen oder eine Kollegin:<br><br><div style='background:#fff;border:1px solid var(--border2);border-radius:6px;padding:12px;margin:8px 0;font-size:8pt;line-height:1.6;color:var(--text)'><strong>Betreff:</strong> Digitalisierungsanalyse f\u00fcr Ihre Kommune<br><br>Liebe Kollegin, lieber Kollege,<br><br>im Rahmen einer Standortanalyse wurde unsere Verwaltung hinsichtlich Digitalisierungspotenzial und F\u00f6rderm\u00f6glichkeiten untersucht \u2014 mit Vergleichsdaten zu anderen Kommunen und konkreten Handlungsfeldern.<br><br>Das Ergebnis war aufschlussreich. Ich denke, das k\u00f6nnte auch f\u00fcr Ihre Gemeinde interessant sein.<br><br>Link: https://florianziesche.github.io/ainary-demo-v10/<br><br>Bei Interesse kann ich den Kontakt herstellen.<br><br>Mit freundlichen Gr\u00fc\u00dfen<br><em>[Unterschrift B\u00fcrgermeister/in]</em></div><button onclick=\"navigator.clipboard.writeText('Betreff: Digitalisierungsanalyse f\\u00fcr Ihre Kommune\\n\\nLiebe Kollegin, lieber Kollege,\\n\\nim Rahmen einer Standortanalyse wurde unsere Verwaltung hinsichtlich Digitalisierungspotenzial und F\\u00f6rderm\\u00f6glichkeiten untersucht \\u2014 mit Vergleichsdaten zu anderen Kommunen und konkreten Handlungsfeldern.\\n\\nDas Ergebnis war aufschlussreich. Ich denke, das k\\u00f6nnte auch f\\u00fcr Ihre Gemeinde interessant sein.\\n\\nLink: https://florianziesche.github.io/ainary-demo-v10/\\n\\nBei Interesse kann ich den Kontakt herstellen.\\n\\nMit freundlichen Gr\\u00fc\\u00dfen\\n[Unterschrift B\\u00fcrgermeister/in]');this.textContent='\u2713 Kopiert';setTimeout(()=>this.textContent='Text kopieren',2000)\" style='margin-top:6px;padding:5px 12px;border:1px solid var(--border2);border-radius:4px;font-family:var(--m);font-size:7pt;color:var(--accent);cursor:pointer;background:none'>Text kopieren</button>"]
 };
 
+// ── Page Facts: Real numbers from each page ──
+const PAGE_FACTS={
+"index":[
+  "Auf dieser Seite: <strong>12 Arbeitstage</strong> bisher eingespart — das ist Woche 1 von 52.",
+  "<strong>71% Confidence</strong> im Durchschnitt über alle Analysen, quellengewichtet aus 79 Quellen.",
+  "Identifiziertes Potenzial: <strong>€215k–580k</strong> — davon €200-500k aus Fördermitteln, €15k/Jahr Verwaltungseinsparung."
+],
+"analyse":[
+  "<strong>29 von 100 Mitarbeitern</strong> gehen bis 2036 in Rente. 9 davon sind voraussichtlich nicht nachbesetzbar (Nichtbesetzungsquote 31%, Demografieportal 2024). <span class='tag tag-i'>I</span>",
+  "<strong>40% der Verwaltungsaufgaben</strong> sind Routine — potenziell automatisierbar.",
+  "73% der Betriebe in Sachsen finden keine ausreichend qualifizierten Bewerber (DIHK Ausbildungsumfrage, 2025). <span class='tag tag-e'>E</span>"
+],
+"projekte":[
+  "<strong>6 KI-Anwendungen</strong> sofort umsetzbar — Einsparpotenzial ~240 Std./Jahr über alle.",
+  "Tages-Briefing spart <strong>8 Std./Woche</strong>. Bürgeranfragen: 5 Std./Woche.",
+  "Phase 02 (Pilotbetrieb) dauert <strong>4–6 Wochen</strong> mit 3 Sachbearbeitern."
+],
+"dokumente":[
+  "<strong>6 Dokumente</strong> verfügbar, basierend auf 79 Quellen. 3 weitere in Vorbereitung.",
+  "Höchste Confidence: Fördermittel-Komplettscan (<strong>78%</strong>, 23 Quellen)."
+],
+"wirtschaft":[
+  "<strong>167 Unternehmen</strong> in Glashütte erfasst. 5 Uhrenmanufakturen + 13 Gewerbe & Dienstleister detailliert.",
+  "Uhrenindustrie: Luxussegment stabil (+3,2%), alle Glashütter Manufakturen im Hochpreisbereich. <span class='tag tag-e'>E</span>"
+],
+"vergleich":[
+  "<strong>22 Kommunen</strong> im Vergleich — 3 Reifegradstufen nach DESI/CMMI.",
+  "Glashütte: Stufe <strong>Initial</strong> (1/6 Online-Services). Dippoldiswalde: Stufe Entwicklung (5/6). <span class='tag tag-e'>E</span>",
+  "Bad Belzig (11.436 EW) zeigt als Smart-City-Modellprojekt was möglich ist: €5,4M Förderung, eigene Bürger-App. <span class='tag tag-e'>E</span>"
+],
+"analyse-foerdermittel":[
+  "<strong>11 Förderprogramme</strong> identifiziert — 3 mit Frist in den nächsten 8 Wochen.",
+  "Geschätztes Fördervolumen bei Erfolg: <strong>€200.000–500.000</strong> über 2–3 Jahre. <span class='tag tag-a'>A</span>",
+  "EFRE Sachsen: bis 50% Zuschuss für KMU — aber <strong>nicht für Kommunen direkt</strong>. Nur über kommunale Unternehmen oder KMU im Gemeindegebiet."
+],
+"analyse-digitalisierung":[
+  "Glashütte bietet <strong>1 von 6</strong> Online-Services. Dippoldiswalde im selben Landkreis: 5 von 6. <span class='tag tag-e'>E</span>",
+  "OZG-Umsetzung bundesweit: <strong>196 von 575</strong> Leistungen digitalisiert (BMI, Feb 2025). <span class='tag tag-e'>E</span>",
+  "Gleicher IT-Dienstleister — Umsetzung in 2–4 Wochen möglich. <span class='tag tag-i'>I</span>"
+],
+"analyse-buergerstimmung":[
+  "<strong>342 Posts</strong> analysiert. Windkraft dominiert mit 46% aller Diskussionen, 78% negativ.",
+  "Bürgerthemen Top 3: <strong>Windkraft</strong> (46%), <strong>Infrastruktur</strong> (23%), <strong>Tourismus</strong> (15%). <span class='tag tag-e'>E</span>"
+],
+"analyse-uhrenindustrie":[
+  "Globaler Luxusuhrenmarkt: <strong>+3,2% Wachstum</strong>. Schweizer Exporte €24,1 Mrd. (FH, 2024). <span class='tag tag-e'>E</span>",
+  "Alle 5 Glashütter Manufakturen im Luxussegment (>€1.000). 3 von 5 mit eigenen Kalibern."
+]
+};
+
 // ── Per-page context (firma/kommune) ──
 const MIA_CTX={
 "nomos":{type:"firma",name:"Nomos Glash\u00fctte",greeting:"Fragen zu Nomos Glash\u00fctte?",
@@ -153,7 +203,14 @@ function miaFind(t){
   if(t.includes("termin")||t.includes("florian")) return MIA_R["termin"];
   if(t.includes("danke")||t.includes("super")) return MIA_R["danke"];
   if(ctx) return ctx.info; // Default to page info if on analyse page
-  return["Ich kann zu <strong>F\u00f6rdermitteln</strong>, <strong>Digitalisierung</strong>, <strong>B\u00fcrgerstimmung</strong> und <strong>Uhrenindustrie</strong> Auskunft geben. Oder sagen Sie <strong>\u201eProjektvorschlag\u201c</strong>."];
+  // Fact-based response from current page
+  const pk=location.pathname.replace(/.*\//,"").replace(".html","");
+  const facts=PAGE_FACTS[pk]||PAGE_FACTS["index"];
+  if(t.includes("fakt")||t.includes("zahl")||t.includes("detail")||t.includes("mehr")) return [facts[Math.floor(Math.random()*facts.length)]];
+  // Honest fallback for off-topic
+  const onTopic=["förder","digital","bürger","uhr","personal","rente","firma","kommun","projekt","dokument","wirtschaft","vergleich","analyse","mia","termin","brief","schreib","vorschlag","empfehl","danke"];
+  if(!onTopic.some(k=>t.includes(k))) return ["Dazu habe ich auf dieser Seite keine Daten. Ich kann zu <strong>Fördermitteln</strong>, <strong>Digitalisierung</strong>, <strong>Personal</strong>, <strong>Bürgerstimmung</strong> und <strong>Uhrenindustrie</strong> Auskunft geben — jeweils mit Quellen und Zahlen."];
+  return [facts[0]];
 }
 
 function miaAddMsg(t,u){const m=document.getElementById("mia-messages"),d=document.createElement("div");d.className="mia-msg"+(u?" user":"");if(u){d.innerHTML='<div class="mia-msg-t">'+t+"</div>";m.appendChild(d);m.scrollTop=m.scrollHeight}else{const av=document.createElement("div");av.className="mia-msg-a";av.textContent="M";const tb=document.createElement("div");tb.className="mia-msg-t";d.appendChild(av);d.appendChild(tb);m.appendChild(d);m.scrollTop=m.scrollHeight;const chars=t.split("");let i=0,buf="",inTag=false;(function tick(){if(i>=chars.length){tb.innerHTML=t;m.scrollTop=m.scrollHeight;makeBoldClickable();return}buf+=chars[i];if(chars[i]==="<")inTag=true;if(chars[i]===">")inTag=false;i++;if(inTag){tick()}else{tb.innerHTML=buf;m.scrollTop=m.scrollHeight;setTimeout(tick,14+Math.random()*10)}})()}}
@@ -176,7 +233,8 @@ document.addEventListener("DOMContentLoaded",function(){
     "analyse":"Fragen Sie mich zu <strong>Personal</strong>, <strong>F\u00f6rdermitteln</strong>, <strong>Digitalisierung</strong> oder <strong>B\u00fcrgerstimmung</strong>.",
   };
   const pageKey=location.pathname.replace(/.*\//,"").replace(".html","");
-  const firstMsg=ctx?ctx.info[0]:(pageMsgs[pageKey]||"Fragen Sie mich zu <strong>F\u00f6rdermitteln</strong>, <strong>Digitalisierung</strong>, <strong>B\u00fcrgerstimmung</strong> oder <strong>Uhrenindustrie</strong>.");
+  const pf=PAGE_FACTS[pageKey];
+  const firstMsg=ctx?ctx.info[0]:pf?pf[0]:(pageMsgs[pageKey]||"Fragen Sie mich zu <strong>F\u00f6rdermitteln</strong>, <strong>Digitalisierung</strong>, <strong>B\u00fcrgerstimmung</strong> oder <strong>Uhrenindustrie</strong>.");
 
   // Build chips matching page context
   const pageChips={
