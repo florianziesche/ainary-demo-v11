@@ -371,73 +371,74 @@
   <div class="sec-label">Themenübersicht</div>
   <div class="sec-title" style="font-size:14pt;margin-bottom:16px">Wie alles zusammenhängt</div>
 
-  <div style="position:relative;width:100%;max-width:780px;margin:0 auto 32px;height:340px">
-    <!-- SVG connections -->
-    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 780 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Personal (center) connections -->
-      <line x1="390" y1="145" x2="180" y2="145" stroke="var(--border2)" stroke-width="1.2"/><!-- Personal→Fördermittel -->
-      <line x1="390" y1="145" x2="600" y2="145" stroke="var(--border2)" stroke-width="1.2"/><!-- Personal→Digitalisierung -->
-      <line x1="390" y1="145" x2="390" y2="40" stroke="var(--border2)" stroke-width="1.2"/><!-- Personal→Bürgerstimmung -->
-      <line x1="390" y1="145" x2="390" y2="270" stroke="var(--border2)" stroke-width="1.2"/><!-- Personal→Wirtschaft -->
-      <!-- Cross connections -->
-      <line x1="180" y1="145" x2="600" y2="145" stroke="var(--border2)" stroke-width="0.6" stroke-dasharray="4 4"/><!-- Fördermittel→Digitalisierung -->
-      <line x1="180" y1="145" x2="180" y2="270" stroke="var(--border2)" stroke-width="0.6" stroke-dasharray="4 4"/><!-- Fördermittel→Uhrenindustrie -->
-      <line x1="600" y1="145" x2="600" y2="270" stroke="var(--border2)" stroke-width="0.6" stroke-dasharray="4 4"/><!-- Digitalisierung→Kommunen -->
-      <line x1="180" y1="270" x2="390" y2="270" stroke="var(--border2)" stroke-width="1.2"/><!-- Uhrenindustrie→Wirtschaft -->
-      <line x1="390" y1="270" x2="600" y2="270" stroke="var(--border2)" stroke-width="1.2"/><!-- Wirtschaft→Kommunen -->
-      <line x1="390" y1="40" x2="180" y2="145" stroke="var(--border2)" stroke-width="0.6" stroke-dasharray="4 4"/><!-- Bürgerstimmung→Fördermittel -->
+  <style>
+    .tmap{position:relative;width:100%;max-width:780px;margin:0 auto 32px;height:320px}
+    .tnode{position:absolute;z-index:1;text-decoration:none;color:inherit;border:1px solid var(--border2);border-radius:8px;padding:8px 14px;background:#fff;text-align:center;transition:border-color .15s,box-shadow .15s}
+    .tnode:hover{border-color:var(--accent);box-shadow:0 2px 12px rgba(157,127,59,.15)}
+    .tnode .tdot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px rgba(157,127,59,.35);margin:0 auto 5px}
+    .tnode .tname{font-size:8pt;font-weight:600;white-space:nowrap}
+    .tnode .tmeta{font-family:var(--m);font-size:6.5pt;color:var(--muted);white-space:nowrap}
+    .tnode.center{border-color:var(--accent);border-width:1.5px}
+    .tnode.center .tdot{width:10px;height:10px;box-shadow:0 0 10px rgba(157,127,59,.5)}
+    .tnode.center .tname{font-size:9pt;font-weight:700}
+  </style>
+
+  <div class="tmap">
+    <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 780 320" fill="none">
+      <!-- Primary connections (solid, 0.8px) -->
+      <line x1="390" y1="130" x2="390" y2="42" stroke="#d0d0d0" stroke-width=".8"/>
+      <line x1="390" y1="130" x2="168" y2="130" stroke="#d0d0d0" stroke-width=".8"/>
+      <line x1="390" y1="130" x2="612" y2="130" stroke="#d0d0d0" stroke-width=".8"/>
+      <line x1="390" y1="155" x2="390" y2="248" stroke="#d0d0d0" stroke-width=".8"/>
+      <line x1="168" y1="255" x2="390" y2="255" stroke="#d0d0d0" stroke-width=".8"/>
+      <line x1="390" y1="255" x2="612" y2="255" stroke="#d0d0d0" stroke-width=".8"/>
+      <!-- Secondary connections (dotted, 0.5px) -->
+      <line x1="168" y1="155" x2="168" y2="248" stroke="#e8e8e8" stroke-width=".5" stroke-dasharray="3 3"/>
+      <line x1="612" y1="155" x2="612" y2="248" stroke="#e8e8e8" stroke-width=".5" stroke-dasharray="3 3"/>
+      <line x1="340" y1="42" x2="200" y2="118" stroke="#e8e8e8" stroke-width=".5" stroke-dasharray="3 3"/>
     </svg>
 
-    <!-- Nodes -->
-    <a href="analyse-buergerstimmung.html" style="position:absolute;left:50%;top:10px;transform:translateX(-50%);text-align:center;text-decoration:none;color:inherit;z-index:1">
-      <div style="width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(157,127,59,.35);margin:0 auto 4px"></div>
-      <div style="font-size:8pt;font-weight:600">Bürgerstimmung</div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--muted)">78% negativ · Windkraft</div>
+    <a href="analyse-buergerstimmung.html" class="tnode" style="left:50%;top:6px;transform:translateX(-50%)">
+      <div class="tdot"></div>
+      <div class="tname">Bürgerstimmung</div>
+      <div class="tmeta">78% negativ · Windkraft</div>
     </a>
 
-    <a href="analyse-foerdermittel.html" style="position:absolute;left:80px;top:115px;text-align:center;text-decoration:none;color:inherit;z-index:1">
-      <div style="width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(157,127,59,.35);margin:0 auto 4px"></div>
-      <div style="font-size:8pt;font-weight:600">Fördermittel</div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--muted)">11 Programme · 3 Fristen</div>
+    <a href="analyse-foerdermittel.html" class="tnode" style="left:68px;top:105px">
+      <div class="tdot"></div>
+      <div class="tname">Fördermittel</div>
+      <div class="tmeta">11 Programme · 3 Fristen</div>
     </a>
 
-    <a href="analyse.html" style="position:absolute;left:50%;top:115px;transform:translateX(-50%);text-align:center;text-decoration:none;color:inherit;z-index:1">
-      <div style="width:20px;height:20px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(157,127,59,.5);margin:0 auto 4px"></div>
-      <div style="font-size:9pt;font-weight:700">Personal</div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--accent)">Kernproblem</div>
+    <a href="analyse.html" class="tnode center" style="left:50%;top:105px;transform:translateX(-50%)">
+      <div class="tdot"></div>
+      <div class="tname">Personal</div>
+      <div class="tmeta" style="color:var(--accent)">Kernproblem</div>
     </a>
 
-    <a href="analyse-digitalisierung.html" style="position:absolute;right:80px;top:115px;text-align:center;text-decoration:none;color:inherit;z-index:1">
-      <div style="width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(157,127,59,.35);margin:0 auto 4px"></div>
-      <div style="font-size:8pt;font-weight:600">Digitalisierung</div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--muted)">1/6 Services · Quick Win</div>
+    <a href="analyse-digitalisierung.html" class="tnode" style="right:68px;top:105px">
+      <div class="tdot"></div>
+      <div class="tname">Digitalisierung</div>
+      <div class="tmeta">1/6 Services · Quick Win</div>
     </a>
 
-    <a href="analyse-uhrenindustrie.html" style="position:absolute;left:80px;top:240px;text-align:center;text-decoration:none;color:inherit;z-index:1">
-      <div style="width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(157,127,59,.35);margin:0 auto 4px"></div>
-      <div style="font-size:8pt;font-weight:600">Uhrenindustrie</div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--muted)">+3.2% · 11 Hersteller</div>
+    <a href="analyse-uhrenindustrie.html" class="tnode" style="left:68px;top:225px">
+      <div class="tdot"></div>
+      <div class="tname">Uhrenindustrie</div>
+      <div class="tmeta">+3.2% · 11 Hersteller</div>
     </a>
 
-    <a href="wirtschaft.html" style="position:absolute;left:50%;top:240px;transform:translateX(-50%);text-align:center;text-decoration:none;color:inherit;z-index:1">
-      <div style="width:16px;height:16px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(157,127,59,.4);margin:0 auto 4px"></div>
-      <div style="font-size:8.5pt;font-weight:600">Wirtschaft</div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--muted)">167 Unternehmen</div>
+    <a href="wirtschaft.html" class="tnode" style="left:50%;top:225px;transform:translateX(-50%)">
+      <div class="tdot"></div>
+      <div class="tname">Wirtschaft</div>
+      <div class="tmeta">167 Unternehmen</div>
     </a>
 
-    <a href="vergleich.html" style="position:absolute;right:80px;top:240px;text-align:center;text-decoration:none;color:inherit;z-index:1">
-      <div style="width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px rgba(157,127,59,.35);margin:0 auto 4px"></div>
-      <div style="font-size:8pt;font-weight:600">Kommunen</div>
-      <div style="font-family:var(--m);font-size:6.5pt;color:var(--muted)">22 verglichen · Initial</div>
+    <a href="vergleich.html" class="tnode" style="right:68px;top:225px">
+      <div class="tdot"></div>
+      <div class="tname">Kommunen</div>
+      <div class="tmeta">22 verglichen · Initial</div>
     </a>
-
-    <!-- Connection labels -->
-    <div style="position:absolute;left:50%;top:85px;transform:translateX(-50%);font-family:var(--m);font-size:5.5pt;color:var(--light);background:#fff;padding:0 4px">KI löst Personalmangel</div>
-    <div style="position:absolute;left:232px;top:128px;font-family:var(--m);font-size:5.5pt;color:var(--light);background:#fff;padding:0 4px">Förderung</div>
-    <div style="position:absolute;right:232px;top:128px;font-family:var(--m);font-size:5.5pt;color:var(--light);background:#fff;padding:0 4px">Lösung</div>
-    <div style="position:absolute;left:50%;top:205px;transform:translateX(-50%);font-family:var(--m);font-size:5.5pt;color:var(--light);background:#fff;padding:0 4px">Fachkräfte</div>
-    <div style="position:absolute;left:232px;top:255px;font-family:var(--m);font-size:5.5pt;color:var(--light);background:#fff;padding:0 4px">Kernbranche</div>
-    <div style="position:absolute;right:232px;top:255px;font-family:var(--m);font-size:5.5pt;color:var(--light);background:#fff;padding:0 4px">Benchmark</div>
   </div>
 
   <!-- Lesezeichen -->
