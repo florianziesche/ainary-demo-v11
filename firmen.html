@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Firmen — Ainary · Glashütte</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -75,11 +76,17 @@ tr:hover{background:rgba(157,127,59,.03)}
 }
 </style>
 <script src="shared-header.js" defer></script>
-<script src="shared-footer.js" defer></script></head>
+<script src="shared-footer.js" defer></script><link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script>
+<meta property="og:title" content="Firmen — Ainary · Glashütte">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+</head>
 <body>
 <div class="page">
 
   <div id="shared-header"></div>
+  <div id="mia-slot"></div>
 
   <!-- Hero -->
   <div style="font-size:20pt;font-weight:700;letter-spacing:-.02em;margin-bottom:4px">Wirtschaftsstandort Glashütte</div>
@@ -388,23 +395,13 @@ tr:hover{background:rgba(157,127,59,.03)}
 
   <footer class="ftr">
     <span>© 2026 Ainary</span><span>·</span>
-    <a href="https://ainaryventures.com">ainaryventures.com</a><span>·</span>
+    <a href="https://ainaryventures.com" target="_blank" rel="noopener">ainaryventures.com</a><span>·</span>
     <span>florian@ainaryventures.com</span>
   </footer>
 
 </div>
 
-<script>
-function updateClock(){
-  const now=new Date();
-  const days=['So','Mo','Di','Mi','Do','Fr','Sa'];
-  const d=days[now.getDay()]+', '+now.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
-  const t=now.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-  document.getElementById('live-date').textContent=d;
-  document.getElementById('live-time').textContent=t;
-}
-function updateGreeting(){const h=new Date().getHours();const g=document.getElementById("greeting");if(g)g.textContent=h>=5&&h<12?"Guten Morgen":h>=12&&h<18?"Guten Tag":"Guten Abend";}
-updateGreeting();updateClock();setInterval(updateClock,10000);
-</script>
+
+<div id="shared-footer"></div>
 </body>
 </html>

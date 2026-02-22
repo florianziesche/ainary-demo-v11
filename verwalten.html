@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Verwalten — Ainary</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -32,10 +33,20 @@
   .info{font-size:8pt;color:var(--muted);line-height:1.5;margin-top:8px}.info strong{color:var(--text2)}
   .divider{border:none;border-top:1px solid var(--border2);margin:20px 0}
   .danger-link{font-size:7.5pt;color:var(--light);text-decoration:none}.danger-link:hover{color:var(--muted);text-decoration:underline}
+  @media(max-width:700px){.page{padding:20px 16px}.grid-2,.grid-3,.comp-grid,.evidence-grid,.kpi-grid{grid-template-columns:1fr}}
 </style>
+<script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script>
+<meta property="og:title" content="Verwalten — Ainary">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
 <body>
 <div class="page">
+  <div id="shared-header"></div>
+  <div id="mia-slot"></div>
 
   <!-- Header -->
   <div class="hdr">
@@ -130,5 +141,6 @@
     <span>Verschlüsselt</span>
   </footer>
 </div>
+<div id="shared-footer"></div>
 </body>
 </html>

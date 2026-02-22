@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daily Intel — Glashütte · 20. Feb 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -148,12 +149,20 @@
   @media(max-width:640px){.page{padding:24px 16px}.xref-grid{grid-template-columns:1fr}.ftr-grid{grid-template-columns:1fr}.sent-row{flex-direction:column;gap:6px}}
   @media print{.portal-hdr,.back,.deep-dive,.report-actions{display:none}body{font-size:9.5pt}.page{padding:0;max-width:100%}.sec{page-break-inside:avoid}@page{margin:20mm 18mm;size:A4}}
 </style>
+<script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script>
+<meta property="og:title" content="Daily Intel — Glashütte · 20. Feb 2026">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
 <body>
 <div class="page">
 
   <!-- Portal Header -->
-  <div class="portal-hdr">
+  <div id="shared-header"></div>
+  <div id="mia-slot"></div>
     <div class="portal-brand">
       <a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
       <span style="color:var(--border2);margin:0 4px">·</span>
@@ -440,5 +449,6 @@
   </footer>
 
 </div>
+<div id="shared-footer"></div>
 </body>
 </html>

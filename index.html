@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Übersicht — Ainary · Glashütte</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -263,6 +264,10 @@
 </style>
 <script src="bookmarks.js" defer></script><script src="shared-header.js" defer></script>
 <script src="shared-footer.js" defer></script>
+<meta property="og:title" content="Übersicht — Ainary · Glashütte">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
 <body>
 <div class="page">
@@ -414,7 +419,7 @@
       <div class="tmeta">22 verglichen · Initial</div>
     </a>
   </div>
-  <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);text-align:center;margin-top:4px">7 Themen · 79 Quellen · 12 Einzelanalysen · Letzte Aktualisierung: 22.02.2026</div>
+  <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);text-align:center;margin-top:4px">7 Themen · 79 Quellen · 16 Einzelanalysen · Letzte Aktualisierung: 22.02.2026</div>
   </div>
 
   <div style="margin-bottom:32px"></div>
@@ -493,19 +498,6 @@ function addMsg(t,u){const m=document.getElementById('mia-messages'),d=document.
 function sendChip(t){const b=document.getElementById('mia-body'),l=document.getElementById('mia-toggle-label');if(!b.classList.contains('open')){b.classList.add('open');l.textContent='↑'}addMsg(t,true);setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*600)}
 function sendMia(){const i=document.getElementById('mia-input'),t=i.value.trim();if(!t)return;addMsg(t,true);i.value='';setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*800)}
 </script>
-<script>
-// Live date + time
-function updateClock(){
-  const now=new Date();
-  const days=['So','Mo','Di','Mi','Do','Fr','Sa'];
-  const d=days[now.getDay()]+', '+now.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
-  const t=now.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-  const el=document.getElementById('live-date');
-  if(el)el.textContent=d;
-  const et=document.getElementById('live-time');
-  if(et)et.textContent=t;
-}
-function updateGreeting(){const h=new Date().getHours();const g=document.getElementById("greeting");if(g)g.textContent=h>=5&&h<12?"Guten Morgen":h>=12&&h<18?"Guten Tag":"Guten Abend";}updateGreeting();updateClock();setInterval(updateClock,10000);
-</script>
+
 </body>
 </html>

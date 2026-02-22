@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wirtschaft — Ainary · Glashütte</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -81,7 +82,11 @@ tr:hover{background:rgba(157,127,59,.03)}
   .cta-request:hover{color:var(--muted)}
 </style>
 <link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
-<script src="shared-footer.js" defer></script></head>
+<script src="shared-footer.js" defer></script><meta property="og:title" content="Wirtschaft — Ainary · Glashütte">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+</head>
 <body>
 <div class="page">
 
@@ -347,79 +352,13 @@ tr:hover{background:rgba(157,127,59,.03)}
 
   <footer class="ftr">
     <span>© 2026 Ainary</span><span>·</span>
-    <a href="https://ainaryventures.com">ainaryventures.com</a><span>·</span>
+    <a href="https://ainaryventures.com" target="_blank" rel="noopener">ainaryventures.com</a><span>·</span>
     <span>florian@ainaryventures.com</span>
   </footer>
 
 </div>
 
-<script>
-function updateClock(){
-  const now=new Date();
-  const days=['So','Mo','Di','Mi','Do','Fr','Sa'];
-  const d=days[now.getDay()]+', '+now.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
-  const t=now.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-  document.getElementById('live-date').textContent=d;
-  document.getElementById('live-time').textContent=t;
-}
-function updateGreeting(){const h=new Date().getHours();const g=document.getElementById("greeting");if(g)g.textContent=h>=5&&h<12?"Guten Morgen":h>=12&&h<18?"Guten Tag":"Guten Abend";}
-updateGreeting();updateClock();setInterval(updateClock,10000);
 
-function filterCat(cat){
-  document.querySelectorAll('.cf').forEach(b=>{b.classList.remove('active');});
-  document.getElementById('cf-'+cat).classList.add('active');
-  const secs=['uhren','gewerbe','kommunen'];
-  if(cat==='all'){secs.forEach(s=>document.getElementById('sec-'+s).style.display='block');}
-  else{secs.forEach(s=>{document.getElementById('sec-'+s).style.display=s===cat?'block':'none';});}
-}
-
-// Kommunen Tracker
-const kommunen=[
-  {name:'Glashütte',bl:'SN',ew:6657,score:17,status:'live',url:'index.html',analyse:'analyse-glashuette.html'},
-  {name:'Dippoldiswalde',bl:'SN',ew:14560,score:83,status:'live',analyse:'analyse-dippoldiswalde.html'},
-  {name:'Altenberg',bl:'SN',ew:8200,score:50,status:'new'},
-  {name:'Freital',bl:'SN',ew:39500,score:67,status:'new'},
-  {name:'Pirna',bl:'SN',ew:39000,score:60,status:'new'},
-  {name:'Meißen',bl:'SN',ew:28000,score:55,status:'new'},
-  {name:'Freiberg',bl:'SN',ew:40600,score:62,status:'new'},
-  {name:'Radebeul',bl:'SN',ew:34000,score:70,status:'new'},
-  {name:'Bautzen',bl:'SN',ew:38800,score:58,status:'new'},
-  {name:'Görlitz',bl:'SN',ew:56000,score:52,status:'new'},
-  {name:'Worms',bl:'RP',ew:83500,score:65,status:'new'},
-  {name:'Gersheim',bl:'SL',ew:6400,score:30,status:'live',analyse:'analyse-gersheim.html'},
-  {name:'Jena',bl:'TH',ew:111407,score:72,status:'live',analyse:'analyse-jena.html'},
-  {name:'Marburg',bl:'HE',ew:76401,score:68,status:'live',analyse:'analyse-marburg.html'},
-  {name:'Konstanz',bl:'BW',ew:84800,score:74,status:'new'},
-  {name:'Lüneburg',bl:'NI',ew:78000,score:66,status:'new'},
-  {name:'Trier',bl:'RP',ew:111500,score:63,status:'new'},
-  {name:'Greifswald',bl:'MV',ew:59400,score:48,status:'new'},
-  {name:'Schwäbisch Hall',bl:'BW',ew:42000,score:60,status:'new'},
-  {name:'Norderstedt',bl:'SH',ew:81400,score:71,status:'new'},
-  {name:'Bad Belzig',bl:'BB',ew:11436,score:75,status:'live',analyse:'analyse-badbelzig.html'},
-  {name:'Smart Region AUF',bl:'BY',ew:6000,score:78,status:'live',analyse:'analyse-smartregion-auf.html'},
-];
-const blN={BB:'Brandenburg',BY:'Bayern',SN:'Sachsen',TH:'Thüringen',HE:'Hessen',BW:'Baden-Württemberg',NI:'Niedersachsen',RP:'Rheinland-Pfalz',SL:'Saarland',MV:'Mecklenburg-Vorp.',SH:'Schleswig-Holstein'};
-function renderK(data){
-  const tb=document.getElementById('k-body');tb.innerHTML='';
-  data.forEach((k,i)=>{
-    const ma=Math.round(k.ew*13/1000),ret=Math.round(ma*.33),pot=Math.round(k.ew/6800*400);
-    const cls=k.score>=70?'high':k.score>=50?'mid':'low';
-    const st=k.status==='live'?'<span style="font-family:var(--m);font-size:6.5pt;padding:2px 8px;border-radius:3px;background:rgba(45,138,78,.08);color:var(--green)">Live</span>':k.status==='pending'?'<span style="font-family:var(--m);font-size:6.5pt;padding:2px 8px;border-radius:3px;background:rgba(180,83,9,.08);color:var(--amber)">In Arbeit</span>':'<span style="font-family:var(--m);font-size:6.5pt;padding:2px 8px;border-radius:3px;background:rgba(157,127,59,.06);color:var(--accent)">Neu</span>';
-    const link=k.analyse?'<a href="'+k.analyse+'" style="font-family:var(--m);font-size:7pt;color:var(--accent)">Analyse einsehen →</a>':k.url?'<a href="'+k.url+'" style="font-family:var(--m);font-size:7pt;color:var(--accent)">Dashboard →</a>':'<a href="#" style="font-family:var(--m);font-size:7pt;color:var(--accent)">Analyse anfordern →</a>';
-    tb.innerHTML+=`<tr><td style="font-family:var(--m);font-size:7pt;color:var(--light)">${String(i+1).padStart(2,'0')}</td><td><strong>${k.name}</strong><div style="font-family:var(--m);font-size:6.5pt;color:var(--muted)">${blN[k.bl]||k.bl}</div></td><td style="font-family:var(--m);font-weight:700">${k.ew.toLocaleString('de-DE')}</td><td style="font-family:var(--m);font-weight:600">~${ma}<div style="font-size:6.5pt;color:var(--light);font-weight:400">${ret} Rente</div></td><td style="color:var(--red);font-family:var(--m);font-weight:600">${ret}</td><td><div style="display:flex;align-items:center;gap:6px"><div style="height:6px;border-radius:3px;background:var(--border2);width:60px;overflow:hidden"><div style="height:100%;border-radius:3px;width:${k.score}%;background:${k.score>=70?'var(--green)':k.score>=50?'var(--amber)':'var(--red)'}"></div></div><span style="font-family:var(--m);font-size:7pt;font-weight:600">${k.score}%</span></div></td><td style="font-family:var(--m);font-weight:700;color:var(--accent)">€${pot>999?(pot/1000).toFixed(0)+'k':pot+'k'}</td><td>${st}</td><td>${link}</td></tr>`;
-  });
-}
-const fDiv=document.getElementById('k-filters');
-['Alle','SN','TH','HE','BW','NI','Weitere'].forEach((f,i)=>{
-  const b=document.createElement('button');
-  b.textContent=f==='SN'?'Sachsen':f==='TH'?'Thüringen':f==='HE'?'Hessen':f==='BW'?'Baden-W.':f==='NI'?'Niedersachsen':f;
-  b.style.cssText='font-family:var(--m);font-size:7pt;padding:4px 12px;border:1px solid var(--border2);border-radius:4px;color:var(--muted);cursor:pointer;background:none';
-  if(i===0){b.style.borderColor='var(--accent)';b.style.color='var(--accent)';}
-  b.onclick=()=>{fDiv.querySelectorAll('button').forEach(x=>{x.style.borderColor='var(--border2)';x.style.color='var(--muted)';});b.style.borderColor='var(--accent)';b.style.color='var(--accent)';
-    if(f==='Alle')renderK(kommunen);else if(f==='Weitere')renderK(kommunen.filter(k=>!['SN','TH','HE','BW','NI'].includes(k.bl)));else renderK(kommunen.filter(k=>k.bl===f));};
-  fDiv.appendChild(b);
-});
-renderK(kommunen);
-</script>
+<div id="shared-footer"></div>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dokumente — Ainary · Glashütte</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -42,6 +43,10 @@
 </style>
 <link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
 <script src="shared-footer.js" defer></script>
+<meta property="og:title" content="Dokumente — Ainary · Glashütte">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
 <body>
 <div class="page">
@@ -181,16 +186,6 @@
   <div id="shared-footer"></div>
 </div>
 
-<script>
-function updateClock(){
-  const now=new Date();
-  const days=['So','Mo','Di','Mi','Do','Fr','Sa'];
-  const d=days[now.getDay()]+', '+now.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
-  const t=now.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});
-  const el=document.getElementById('live-date');if(el)el.textContent=d;
-  const et=document.getElementById('live-time');if(et)et.textContent=t;
-}
-function updateGreeting(){const h=new Date().getHours();const g=document.getElementById("greeting");if(g)g.textContent=h>=5&&h<12?"Guten Morgen":h>=12&&h<18?"Guten Tag":"Guten Abend";}updateGreeting();updateClock();setInterval(updateClock,10000);
-</script>
+
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kommunen-Vergleich — Ainary · Glashütte</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -62,7 +63,11 @@
   @media print{.portal-hdr,.tabs,.mia,#mia-slot{display:none}.page{padding:16px}}
 </style>
 <script src="bookmarks.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
-<script src="shared-footer.js" defer></script></head>
+<script src="shared-footer.js" defer></script><meta property="og:title" content="Kommunen-Vergleich — Ainary · Glashütte">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+</head>
 <body>
 <div class="page">
 
@@ -289,7 +294,7 @@
     </div>
   </div>
 
-  <div class="footer">&copy; 2026 Ainary Ventures · florian@ainaryventures.com · ainaryventures.com</div>
+  <div class="footer">&copy; 2026 Ainary · florian@ainaryventures.com · ainaryventures.com</div>
 </div>
 
 <script>
@@ -357,7 +362,8 @@ function filterBL(f){
 renderTable("alle");
 
 // Clock
-function updateClock(){const d=new Date();const dd=document.getElementById("live-date");const dt=document.getElementById("live-time");if(dd)dd.textContent=d.toLocaleDateString("de-DE",{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric"});if(dt)dt.textContent=d.toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"});}updateClock();setInterval(updateClock,10000);
+);if(dt)dt.textContent=d.toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"});}
 </script>
+<div id="shared-footer"></div>
 </body>
 </html>

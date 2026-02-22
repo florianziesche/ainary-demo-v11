@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Methodik — Wie wir rechnen · Ainary</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -22,10 +23,20 @@
   .note{font-size:8.5pt;color:var(--muted);background:var(--surface);border-left:3px solid var(--border);padding:10px 14px;margin:12px 0;line-height:1.6}.note strong{color:var(--text2)}
   .tag{font-family:var(--m);font-size:7pt;display:inline-block;padding:1px 6px;border-radius:3px;vertical-align:middle}
   .source{font-family:var(--m);font-size:7pt;color:var(--light);margin-top:4px}
+  @media(max-width:700px){.page{padding:20px 16px}.grid-2,.grid-3,.comp-grid,.evidence-grid,.kpi-grid{grid-template-columns:1fr}}
 </style>
+<script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script>
+<meta property="og:title" content="Methodik — Wie wir rechnen · Ainary">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
 <body>
 <div class="page">
+  <div id="shared-header"></div>
+  <div id="mia-slot"></div>
 
   <!-- Header -->
   <div class="hdr">
@@ -163,5 +174,6 @@
     <span>Verschlüsselt</span>
   </footer>
 </div>
+<div id="shared-footer"></div>
 </body>
 </html>

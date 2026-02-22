@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Übersicht — Ainary · Glashütte</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -132,10 +133,19 @@
 
   @media(max-width:640px){.page{padding:24px 16px 48px}.tiles,.kpi-cards{grid-template-columns:1fr}.ftr-grid{grid-template-columns:1fr;gap:20px}.ftr-bottom{flex-direction:column;gap:6px;text-align:center}.hdr{flex-wrap:wrap;gap:6px}.hdr-center{display:none}.proj-actions{flex-direction:column;align-items:center}}
 </style>
+<script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script>
+<meta property="og:title" content="Übersicht — Ainary · Glashütte">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
 <body>
 
 <div class="page">
+  <div id="shared-header"></div>
+  <div id="mia-slot"></div>
   <div class="ab">A</div>
 
   <!-- Header -->
@@ -337,5 +347,6 @@ function addMsg(t,u){const m=document.getElementById('mia-messages'),d=document.
 function sendChip(t){const b=document.getElementById('mia-body'),l=document.getElementById('mia-toggle-label');if(!b.classList.contains('open')){b.classList.add('open');l.textContent='↑'}addMsg(t,true);setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*600)}
 function sendMia(){const i=document.getElementById('mia-input'),t=i.value.trim();if(!t)return;addMsg(t,true);i.value='';setTimeout(()=>{const[r]=findResponse(t);addMsg(r,false)},600+Math.random()*800)}
 </script>
+<div id="shared-footer"></div>
 </body>
 </html>

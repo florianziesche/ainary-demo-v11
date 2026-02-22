@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kommunaler Recherche- und Konzeptbedarf — Ainary Analyse</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -68,9 +69,18 @@
 
   @media print{body{font-size:9.5pt}.page{padding:0;max-width:100%}@page{margin:20mm 18mm;size:A4}}
 </style>
+<script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script>
+<meta property="og:title" content="Kommunaler Recherche- und Konzeptbedarf — Ainary Analyse">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
 <body>
 <div class="page">
+  <div id="shared-header"></div>
+  <div id="mia-slot"></div>
 
   <!-- Doc Header -->
   <div class="doc-hdr">
@@ -441,5 +451,6 @@
   </footer>
 
 </div>
+<div id="shared-footer"></div>
 </body>
 </html>
