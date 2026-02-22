@@ -250,6 +250,30 @@
   .flex-between { display: flex; justify-content: space-between; align-items: center; }
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* Evidence Tags */
+  .ev { display: inline-block; font-family: var(--m); font-size: 6.5pt; font-weight: 600; width: 14px; height: 14px; line-height: 14px; text-align: center; border-radius: 2px; margin-right: 3px; vertical-align: middle; }
+  .ev-e { background: var(--green); color: #fff; }
+  .ev-i { background: #5b8def; color: #fff; }
+  .ev-j { background: var(--accent); color: #fff; }
+  .ev-a { background: var(--red); color: #fff; }
+  .ev-legend { display: flex; gap: 16px; flex-wrap: wrap; font-family: var(--m); font-size: 7pt; color: var(--muted); margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--border2); }
+  .ev-legend span { display: flex; align-items: center; gap: 4px; }
+
+  /* Beipackzettel */
+  .beipack { border: 1px solid var(--border2); border-radius: 4px; padding: 20px; margin-bottom: 24px; }
+  .beipack-title { font-family: var(--m); font-size: 7pt; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 12px; }
+  .beipack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .beipack-col h4 { font-size: 8.5pt; font-weight: 600; margin-bottom: 8px; }
+  .beipack-col h4.can { color: var(--green); }
+  .beipack-col h4.cant { color: var(--red); }
+  .beipack-col ul { list-style: none; padding: 0; }
+  .beipack-col li { font-size: 8pt; color: var(--text2); margin-bottom: 4px; padding-left: 12px; position: relative; }
+  .beipack-col li::before { content: ''; position: absolute; left: 0; top: 6px; width: 4px; height: 4px; border-radius: 50%; }
+  .beipack-col.yes li::before { background: var(--green); }
+  .beipack-col.no li::before { background: var(--red); }
+  .beipack-meta { margin-top: 16px; font-family: var(--m); font-size: 7pt; color: var(--muted); line-height: 1.8; }
+  @media (max-width: 600px) { .beipack-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -275,13 +299,54 @@
   <div class="doc-meta">Erstellt: 22. Februar 2026 · ~40 Quellen · 14 Sektionen <span class="conf-tag">VERTRAULICH</span></div>
 </div>
 
+<!-- ======== EVIDENCE LEGEND ======== -->
+<div class="ev-legend">
+  <span><span class="ev ev-e">E</span> Evidence — belegt</span>
+  <span><span class="ev ev-i">I</span> Inference — abgeleitet</span>
+  <span><span class="ev ev-j">J</span> Judgment — Einschätzung</span>
+  <span><span class="ev ev-a">A</span> Assumption — Annahme</span>
+</div>
+
+<!-- ======== BEIPACKZETTEL ======== -->
+<div class="beipack">
+  <div class="beipack-title">Beipackzettel — Lesen vor Verwendung</div>
+  <div class="beipack-grid">
+    <div class="beipack-col yes">
+      <h4 class="can">✓ Was dieses Dossier kann</h4>
+      <ul>
+        <li>Öffentlich verfügbare Fakten zu André Barth zusammenfassen</li>
+        <li>Quellen mit Verifikationsstatus und Confidence angeben</li>
+        <li>Medien-Sentiment über 18 Quellen analysieren</li>
+        <li>Politische Positionen mit Originalzitaten belegen</li>
+        <li>Social-Media-Präsenz dokumentieren</li>
+        <li>Strukturvergleich Altenberg–Glashütte</li>
+      </ul>
+    </div>
+    <div class="beipack-col no">
+      <h4 class="cant">✗ Was dieses Dossier NICHT kann</h4>
+      <ul>
+        <li>Garantie auf Vollständigkeit (Paywall-Inhalte fehlen)</li>
+        <li>Nicht-öffentliche Informationen oder VS-Erkenntnisse</li>
+        <li>Prognosen über Barths künftige Amtsführung</li>
+        <li>Rechtsverbindliche Einordnungen</li>
+        <li>Bewertung persönlicher Eignung</li>
+        <li>Authentifizierte Social-Media-Metriken (FB-Follower etc.)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="beipack-meta">
+    <strong>Methodik:</strong> 40+ öffentliche Quellen durchsucht (Wikipedia, Sächsischer Landtag, MDR, tagesschau, taz, FAZ, SäZ, Leipziger Zeitung, Deutschlandfunk, Amadeu Antonio Stiftung, abgeordnetenwatch.de, Belltower News, andrebarth.de, AfD Sachsen, rathaus-altenberg.de, kommunal.de). Gefiltert nach: Primärquellen bevorzugt, Doppelverifizierung wo möglich, Confidence-Rating pro Fakt.<br>
+    <strong>Letzte Aktualisierung:</strong> 2026-02-22T16:30 · <strong>Gültig bis:</strong> Nächste wesentliche Entwicklung (Doppelmandat-Entscheidung, erster Haushalt, Kita-Beschluss)
+  </div>
+</div>
+
 <!-- ======== EXECUTIVE SUMMARY ======== -->
 <div class="section">
   <div class="section-title">01 — Executive Summary</div>
   <div class="card">
-    <p><strong>André Barth</strong> (* 26.10.1969, Dresden) ist seit Januar 2026 Bürgermeister der Stadt Altenberg im Osterzgebirge — der zweite AfD-Bürgermeister in Sachsen. Jurist (Zulassung 2015 verloren), ehemaliges SPD-Mitglied, seit 2014 durchgehend im Sächsischen Landtag. Gewann mit <strong>61,8%</strong> im ersten Wahlgang bei einer Wahlbeteiligung von 70,8%.</p>
-    <p class="mt-8">Seine Kommune Altenberg (7.462 EW, 146 km², 20+ Ortsteile) ist seit Jahren defizitär, kämpft mit Kita-Schließungen, Breitbandfinanzierung und dem umstrittenen Lithium-Projekt in Zinnwald. Barth ist gleichzeitig noch MdL — Status des Doppelmandats ungeklärt.</p>
-    <p class="mt-8"><strong>Relevanz für Glashütte:</strong> Gleicher Landkreis (SOE), Strukturzwilling, Digitalisierungs-Vorsprung Altenbergs (GemeindeApp + eigenes Sachgebiet). Wettbewerbsdruck und Kooperationspotenzial zugleich.</p>
+    <p><span class="ev ev-e">E</span> <strong>André Barth</strong> (* 26.10.1969, Dresden) ist seit Januar 2026 Bürgermeister der Stadt Altenberg im Osterzgebirge — der zweite AfD-Bürgermeister in Sachsen. <span class="ev ev-e">E</span> Jurist (Zulassung 2015 verloren), ehemaliges SPD-Mitglied, seit 2014 durchgehend im Sächsischen Landtag. <span class="ev ev-e">E</span> Gewann mit <strong>61,8%</strong> im ersten Wahlgang bei 70,8% Wahlbeteiligung.</p>
+    <p class="mt-8"><span class="ev ev-e">E</span> Seine Kommune Altenberg (7.462 EW, 146 km², 20+ Ortsteile) ist seit Jahren defizitär, kämpft mit Kita-Schließungen, Breitbandfinanzierung und dem umstrittenen Lithium-Projekt in Zinnwald. <span class="ev ev-a">A</span> Barth ist gleichzeitig noch MdL — Status des Doppelmandats ungeklärt.</p>
+    <p class="mt-8"><span class="ev ev-j">J</span> <strong>Relevanz für Glashütte:</strong> Gleicher Landkreis (SOE), Strukturzwilling, Digitalisierungs-Vorsprung Altenbergs (GemeindeApp + eigenes Sachgebiet). Wettbewerbsdruck und Kooperationspotenzial zugleich.</p>
   </div>
 </div>
 
@@ -643,14 +708,14 @@
   <div class="card" style="background:var(--surface);">
     <table>
       <tr><th>Kategorie</th><th>Schwere</th><th>Evidenz</th></tr>
-      <tr><td>Terroranschlag-Relativierung ("Anis Amri 2")</td><td><span class="tag tag-red">SCHWERWIEGEND</span></td><td><span class="tag tag-green">99% — WamS Primärquelle</span></td></tr>
-      <tr><td>VS-beobachtete Partei ("gesichert rechtsextrem")</td><td><span class="tag tag-red">SCHWERWIEGEND</span></td><td><span class="tag tag-green">99% — VS Sachsen offiziell</span></td></tr>
-      <tr><td>"Antinationale Einheitsfront"-Rhetorik</td><td><span class="tag tag-red">SCHWERWIEGEND</span></td><td><span class="tag tag-green">99% — Primärquelle andrebarth.de</span></td></tr>
-      <tr><td>NGO-/Fördersumpf-Delegitimierung</td><td><span class="tag tag-yellow">MITTEL</span></td><td><span class="tag tag-green">99% — MDR, WELT, n-tv, Primärquelle</span></td></tr>
-      <tr><td>Netzwerk Maier/Urban/Lochner</td><td><span class="tag tag-yellow">MITTEL</span></td><td><span class="tag tag-green">95% — YouTube, Belltower, Primärquelle</span></td></tr>
-      <tr><td>Anwaltszulassung verloren + verschwiegen</td><td><span class="tag tag-yellow">MITTEL</span></td><td><span class="tag tag-green">99% — Landtag offiziell</span></td></tr>
-      <tr><td>Heidenau/Freital Demo-Sichtung 2015</td><td><span class="tag tag-yellow">MITTEL</span></td><td><span class="tag tag-yellow">70% — Kasek Einzelquelle</span></td></tr>
-      <tr><td>Doppelmandat MdL + BM</td><td><span class="tag tag-blue">OFFEN</span></td><td><span class="tag tag-yellow">Status ungeklärt</span></td></tr>
+      <tr><td><span class="ev ev-e">E</span> Terroranschlag-Relativierung ("Anis Amri 2")</td><td><span class="tag tag-red">SCHWERWIEGEND</span></td><td><span class="tag tag-green">99%</span> WamS Primärquelle</td></tr>
+      <tr><td><span class="ev ev-e">E</span> VS-beobachtete Partei ("gesichert rechtsextrem")</td><td><span class="tag tag-red">SCHWERWIEGEND</span></td><td><span class="tag tag-green">99%</span> VS Sachsen offiziell</td></tr>
+      <tr><td><span class="ev ev-e">E</span> "Antinationale Einheitsfront"-Rhetorik</td><td><span class="tag tag-red">SCHWERWIEGEND</span></td><td><span class="tag tag-green">99%</span> Primärquelle andrebarth.de</td></tr>
+      <tr><td><span class="ev ev-e">E</span> NGO-/Fördersumpf-Delegitimierung</td><td><span class="tag tag-yellow">MITTEL</span></td><td><span class="tag tag-green">99%</span> MDR, WELT, n-tv, Primärquelle</td></tr>
+      <tr><td><span class="ev ev-i">I</span> Netzwerk Maier/Urban/Lochner</td><td><span class="tag tag-yellow">MITTEL</span></td><td><span class="tag tag-green">95%</span> YouTube, Belltower, Primärquelle</td></tr>
+      <tr><td><span class="ev ev-e">E</span> Anwaltszulassung verloren + verschwiegen</td><td><span class="tag tag-yellow">MITTEL</span></td><td><span class="tag tag-green">99%</span> Landtag offiziell</td></tr>
+      <tr><td><span class="ev ev-i">I</span> Heidenau/Freital Demo-Sichtung 2015</td><td><span class="tag tag-yellow">MITTEL</span></td><td><span class="tag tag-yellow">70%</span> Kasek Einzelquelle</td></tr>
+      <tr><td><span class="ev ev-a">A</span> Doppelmandat MdL + BM</td><td><span class="tag tag-blue">OFFEN</span></td><td><span class="tag tag-yellow">?</span> Status ungeklärt</td></tr>
     </table>
   </div>
 </div>
@@ -777,7 +842,7 @@
 <div class="section">
   <div class="section-title">09 — Medien-Sentiment-Analyse</div>
   <div class="card">
-    <p class="mb-8">Analyse der Berichterstattung von 18 Medienquellen zur BM-Wahl. Kategorisierung: <span class="tag tag-red">Kritisch</span> <span class="tag tag-yellow">Neutral/Analytisch</span> <span class="tag tag-green">Positiv/Unterstützend</span></p>
+    <p class="mb-8"><span class="ev ev-j">J</span> Analyse der Berichterstattung von 18 Medienquellen zur BM-Wahl. Kategorisierung: <span class="tag tag-red">Kritisch</span> <span class="tag tag-yellow">Neutral/Analytisch</span> <span class="tag tag-green">Positiv/Unterstützend</span></p>
     
     <div class="sentiment-bar">
       <div class="neg" style="width:33%"></div>
@@ -1090,12 +1155,12 @@
     
     <table style="text-align:left; max-width:600px; margin:20px auto;">
       <tr><th>Dimension</th><th>Score</th><th>Begründung</th></tr>
-      <tr><td>Datenqualität</td><td><strong>9/10</strong></td><td>Wikipedia, Landtag, ÖR — exzellente Quellenlage</td></tr>
-      <tr><td>Kontroversen-Beweis</td><td><strong>8/10</strong></td><td>Anis Amri = Primärquelle. Heidenau = Einzelquelle. RA-Zulassung = offiziell.</td></tr>
-      <tr><td>Social-Media-Vollständigkeit</td><td><strong>7/10</strong></td><td>FB, IG, X, Website gefunden. Telegram/YT/TikTok wahrscheinlich nicht existent.</td></tr>
-      <tr><td>Zitat-Verifizierung</td><td><strong>9/10</strong></td><td>12/13 Zitate doppelt verifiziert. Heidenau = Einzelquelle.</td></tr>
-      <tr><td>Sentiment-Analyse</td><td><strong>8/10</strong></td><td>18 Medienquellen analysiert. Klare Dreigliederung.</td></tr>
-      <tr><td>Prognose-Sicherheit</td><td><strong>6/10</strong></td><td>Erst 4 Wochen im Amt. Agenda unklar. Doppelmandat offen.</td></tr>
+      <tr><td><span class="ev ev-j">J</span> Datenqualität</td><td><strong>9/10</strong></td><td>Wikipedia, Landtag, ÖR — exzellente Quellenlage</td></tr>
+      <tr><td><span class="ev ev-j">J</span> Kontroversen-Beweis</td><td><strong>8/10</strong></td><td>Anis Amri = Primärquelle. Heidenau = Einzelquelle. RA-Zulassung = offiziell.</td></tr>
+      <tr><td><span class="ev ev-j">J</span> Social-Media-Vollständigkeit</td><td><strong>7/10</strong></td><td>FB, IG, X, Website gefunden. Telegram/YT/TikTok wahrscheinlich nicht existent.</td></tr>
+      <tr><td><span class="ev ev-j">J</span> Zitat-Verifizierung</td><td><strong>9/10</strong></td><td>12/13 Zitate doppelt verifiziert. Heidenau = Einzelquelle.</td></tr>
+      <tr><td><span class="ev ev-j">J</span> Sentiment-Analyse</td><td><strong>8/10</strong></td><td>18 Medienquellen analysiert. Klare Dreigliederung.</td></tr>
+      <tr><td><span class="ev ev-a">A</span> Prognose-Sicherheit</td><td><strong>6/10</strong></td><td>Erst 4 Wochen im Amt. Agenda unklar. Doppelmandat offen.</td></tr>
     </table>
   </div>
   
