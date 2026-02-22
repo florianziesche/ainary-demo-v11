@@ -93,34 +93,13 @@
     .proj-grid,.flow,.phase-grid,.wirt-grid,.ch-grid,.kpi-top{grid-template-columns:1fr}
   }
 </style>
-<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="cta-footer.js" defer></script></head>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+</head>
 <body>
 <div class="page">
 
-  <div class="portal-hdr">
-    <div class="portal-left"><div class="brand-dot"></div><span class="brand-name">Ainary</span></div>
-    <div class="portal-center">Glashütte · Projekte</div>
-    <div class="portal-right"><span id="live-date"></span> <span id="live-time"></span></div>
-  </div>
-
-  <!-- Shared Header -->
-  <div style="font-size:22pt;font-weight:700;letter-spacing:-.02em;margin-bottom:2px"><span id="greeting">Guten Morgen</span>, Herr Gleißberg.</div>
-  <div style="font-size:10pt;color:var(--text2);margin-bottom:4px">Ihre Wochen-Übersicht für Glashütte.</div>
-  <div style="height:1px;background:var(--accent);opacity:.15;margin-bottom:8px"></div>
-  <div style="display:flex;gap:0;font-family:var(--m);font-size:7.5pt;margin-bottom:20px">
-    <a href="index.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Übersicht</a>
-    <a href="analyse.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Analyse</a>
-    <a href="projekte.html" style="padding:6px 14px;border-bottom:2px solid var(--accent);color:var(--accent);font-weight:500">Projekte</a>
-    <a href="dokumente.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Dokumente</a><a href="wirtschaft.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Wirtschaft</a>
-  </div>
-
-  <div id="mia-slot"></div>
-
-  <div class="kpi-top">
-    <div class="kpi-card"><div class="kpi-num">6</div><div class="kpi-title">KI-Anwendungen</div><div class="kpi-src">Sofort umsetzbar</div></div>
-    <div class="kpi-card"><div class="kpi-num">~240 Std.</div><div class="kpi-title">Einsparpotenzial/Jahr</div><div class="kpi-src">Über alle 6 Anwendungen</div></div>
-    <div class="kpi-card"><div class="kpi-num">4–8 Wo.</div><div class="kpi-title">Umsetzungszeit</div><div class="kpi-src">Pro Anwendung</div></div>
-  </div>
+  <div id="shared-header"></div>
   <div class="kpi-aside">Geschätztes Einsparpotenzial: €13.200–19.800/Jahr · <a href="methodik.html">Methodik</a></div>
 
     <!-- ── VERWALTUNG ── -->
@@ -218,5 +197,6 @@
 
 </div>
 <script>function updateClock(){const now=new Date();const days=["So","Mo","Di","Mi","Do","Fr","Sa"];const d=days[now.getDay()]+", "+now.toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",year:"numeric"});const t=now.toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"});const el=document.getElementById("live-date");if(el)el.textContent=d;const et=document.getElementById("live-time");if(et)et.textContent=t;}function updateGreeting(){const h=new Date().getHours();const g=document.getElementById("greeting");if(g)g.textContent=h>=5&&h<12?"Guten Morgen":h>=12&&h<18?"Guten Tag":"Guten Abend";}updateGreeting();updateClock();setInterval(updateClock,10000);</script>
+  <div id="shared-footer"></div>
 </body>
 </html>

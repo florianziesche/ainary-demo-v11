@@ -32,104 +32,13 @@ a{color:inherit;text-decoration:none}
 .content strong{color:var(--text)}
 .ftr{text-align:center;padding:24px 0;font-family:var(--m);font-size:6.5pt;color:var(--light);border-top:1px solid var(--border2);margin-top:40px}
 </style>
-<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="bookmarks.js" defer></script><script src="cta-footer.js" defer></script></head>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="bookmarks.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+</head>
 <body>
 <div class="page">
-  <div class="portal-hdr">
-    <div class="portal-left">
-      <a href="index.html" style="display:flex;align-items:center;gap:8px"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
-      <span style="color:var(--light);margin:0 2px">·</span><span style="color:var(--light)">Abmelden</span>
-    </div>
-    <div class="portal-center" style="display:flex;align-items:center;gap:8px;color:var(--muted);font-family:var(--m);font-size:8pt">
-      <span>Glashütte</span><span>☁ 3°C</span>
-    </div>
-    <div class="portal-right" style="font-family:var(--m);font-size:8pt;color:var(--muted)">
-      <span id="live-date"></span> <span id="live-time"></span>
-    </div>
-  </div>
 
-  <div style="display:flex;gap:0;font-family:var(--m);font-size:7.5pt;margin-bottom:24px">
-    <a href="index.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Übersicht</a>
-    <a href="analyse.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Analyse</a>
-    <a href="projekte.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Projekte</a>
-    <a href="dokumente.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Dokumente</a>
-    <a href="wirtschaft.html" style="padding:6px 14px;border-bottom:2px solid var(--accent);color:var(--accent);font-weight:500">Wirtschaft</a>
-  </div>
-
-  <a href="wirtschaft.html" style="font-family:var(--m);font-size:7.5pt;color:var(--accent);display:inline-block;margin-bottom:16px">← Zurück zum Wirtschaftsverzeichnis</a>
-
-  <div id="mia-slot"></div>
-  
-  <!-- Report Header -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
-    <div style="font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.12em;text-transform:uppercase">Ainary Kommunalanalyse</div>
-    <span data-bookmark="analyse-glashuette" onclick="toggleBookmark('analyse-glashuette')" style="cursor:pointer;font-size:14pt;margin-left:8px;transition:color .12s" title="Lesezeichen"><span style="display:inline-block;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--light);background:transparent"></span></span>
-    <div style="font-family:var(--m);font-size:7pt;color:var(--light)">KA-2026-0222-GH</div>
-  </div>
-
-  <div style="font-size:28pt;font-weight:700;letter-spacing:-.03em;margin-bottom:4px">Stadt Glashütte</div>
-  <div style="font-size:10pt;color:var(--text2);margin-bottom:12px">Landkreis SOE · Sachsen · 6.657 Einwohner · 14 Ortsteile</div>
-
-  <div style="display:flex;gap:16px;flex-wrap:wrap;font-family:var(--m);font-size:7.5pt;color:var(--muted);margin-bottom:8px">
-    <span>Datum: 2026-02-22</span><span>Quellen: 8</span>
-  </div>
-
-  <div style="margin-bottom:6px;display:flex;align-items:center;gap:8px">
-    <span style="font-family:var(--m);font-size:7.5pt;color:var(--muted)">Confidence:</span>
-    <div style="flex:0 0 120px;height:6px;background:var(--border2);border-radius:3px;overflow:hidden">
-      <div style="width:75%;height:100%;border-radius:3px;background:var(--green)"></div>
-    </div>
-    <span style="font-family:var(--m);font-size:8pt;font-weight:600;color:var(--green)">75%</span>
-  </div>
-
-  <div style="font-family:var(--m);font-size:7pt;color:var(--muted);margin-bottom:16px">
-    Ihr Aufwand ohne Ainary: ~15–25 Std. · Einsparpotenzial €825–1.375 · Basis: €55/Std. TVöD E11
-  </div>
-
-  <div style="width:100%;height:2px;background:var(--accent);opacity:.3;margin-bottom:16px"></div>
-
-  <div style="display:flex;gap:12px;font-size:6.5pt;margin-bottom:24px;flex-wrap:wrap">
-    <span style="display:flex;align-items:center;gap:3px"><span style="font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;background:rgba(45,138,78,.1);color:var(--green)">E</span> Evidence — belegt</span>
-    <span style="display:flex;align-items:center;gap:3px"><span style="font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;background:rgba(157,127,59,.1);color:var(--accent)">I</span> Inference — abgeleitet</span>
-    <span style="display:flex;align-items:center;gap:3px"><span style="font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;background:rgba(180,83,9,.1);color:var(--amber)">J</span> Judgment — Einschätzung</span>
-    <span style="display:flex;align-items:center;gap:3px"><span style="font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;background:rgba(192,57,43,.1);color:var(--red)">A</span> Assumption — Annahme</span>
-  </div>
-
-  <div style="border:1px solid var(--border2);border-radius:8px;padding:16px;margin-bottom:24px;background:var(--surface)">
-    <div style="font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Beipackzettel — Lesen vor Verwendung</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;font-size:8.5pt">
-      <div>
-        <div style="font-weight:600;color:var(--green);margin-bottom:6px">Was dieser Report kann</div>
-        <ul style="margin:0;padding-left:16px;color:var(--text2);line-height:1.7">
-          <li>Demografische und wirtschaftliche Grunddaten zusammenstellen</li>
-          <li>OZG-Umsetzungsstand Sachsen einordnen</li>
-          <li>Uhrenindustrie-Abhängigkeit quantifizieren</li>
-          <li>Fördermittellandschaft dokumentieren</li>
-        </ul>
-      </div>
-      <div>
-        <div style="font-weight:600;color:var(--red);margin-bottom:6px">Was dieser Report NICHT kann</div>
-        <ul style="margin:0;padding-left:16px;color:var(--text2);line-height:1.7">
-          <li>Stellenplan oder Haushalt einsehen</li>
-          <li>Kommunalspezifische Altersstruktur liefern</li>
-          <li>Breitbandverfügbarkeit bewerten</li>
-          <li>Politische Prozesse analysieren</li>
-        </ul>
-      </div>
-    </div>
-    <div style="font-size:7.5pt;color:var(--muted);margin-top:12px;padding-top:8px;border-top:1px solid var(--border2)">
-      <strong>Methodik:</strong> Destatis, Wikipedia, glashuette-sachs.de, IW Digimeter 2025, dbb 2023, DIHK 2025.<br>
-      <strong>Letzte Aktualisierung:</strong> 2026-02-22T02:00 · <strong>Gültig bis:</strong> 2026-03-22
-    </div>
-  </div>
-
-
-  <div class="kpi-row">
-    <div class="kpi"><div class="kpi-val">6.657</div><div class="kpi-label">Einwohner</div><div class="kpi-sub">31.12.2022 <span class="tag tag-e">E</span> Destatis</div></div>
-    <div class="kpi"><div class="kpi-val">95,64 km²</div><div class="kpi-label">Fläche</div><div class="kpi-sub">Platz 712 bundesweit <span class="tag tag-e">E</span></div></div>
-    <div class="kpi"><div class="kpi-val">69,6</div><div class="kpi-label">EW/km²</div><div class="kpi-sub">geringe Besiedlungsdichte <span class="tag tag-e">E</span></div></div>
-    <div class="kpi"><div class="kpi-val">2021</div><div class="kpi-label">BM Gleißberg</div><div class="kpi-sub">parteilos <span class="tag tag-e">E</span> Wikipedia</div></div>
-  </div>
+  <div id="shared-header"></div>
 
   <div class="sec-label">Verwaltungsstruktur</div>
   <div class="sec-title">Kommunale Kennzahlen</div>
@@ -199,12 +108,11 @@ a{color:inherit;text-decoration:none}
       <strong>Stand:</strong> Februar 2026. Keine Gewähr für Aktualität.
     </div>
   </div>
-
-  <footer class="ftr">© 2026 Ainary Ventures · florian@ainaryventures.com · ainaryventures.com</footer>
 </div>
 <script>
 function updateClock(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleDateString('de-DE',{weekday:'short'})+' '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});}
 updateClock();setInterval(updateClock,10000);
 </script>
+  <div id="shared-footer"></div>
 </body>
 </html>

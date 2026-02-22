@@ -23,29 +23,13 @@
   .tag{font-family:var(--m);font-size:7pt;display:inline-block;padding:1px 6px;border-radius:3px;vertical-align:middle}
   .source{font-family:var(--m);font-size:7pt;color:var(--light);margin-top:4px}
 </style>
+<script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
 </head>
 <body>
 <div class="page">
 
-  <!-- Header -->
-  <div class="hdr">
-    <div class="hdr-left">
-      <a href="index.html" class="brand-link"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
-      <span class="hdr-sep">·</span>
-      <span style="font-size:7.5pt;color:#bbb">Abmelden</span>
-    </div>
-    <div class="hdr-center">
-      <span class="hdr-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Glashütte</span>
-      <span class="hdr-weather">☁ 3°C</span>
-      <span class="hdr-date">Do, 20.02.2026</span>
-    </div>
-    <div class="hdr-right">
-      <a href="verwalten.html" class="hdr-trial">13 Tage</a>
-      <a href="verwalten.html" class="hdr-credits"></a>
-    </div>
-  </div>
-
-  <a href="index.html" class="back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Übersicht</a>
+  <div id="shared-header"></div>  <a href="index.html" class="back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Übersicht</a>
 
   <h1>Wie wir rechnen</h1>
   <div class="subtitle">Transparenz über unsere Wertschätzungen. Keine Zahlen ohne Methodik.</div>
@@ -115,8 +99,6 @@
     <p><strong>Keine Echtzeit-Daten.</strong> Quellen haben ein Erfassungsdatum.</p>
     <p><strong>Keine Vollständigkeit.</strong> Wir finden viel, aber nicht alles. Deshalb Confidence, nicht "garantiert".</p>
   </div>
-
-  <!-- Footer -->
   <!-- Digitalisierungs-Stufe Methodik -->
   <div style="margin-top:32px;padding-top:24px;border-top:1px solid #e8e8e8">
     <div style="font-family:'JetBrains Mono',monospace;font-size:7pt;color:#777;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px">Digitalisierungs-Stufe</div>
@@ -155,13 +137,7 @@
       <strong>Quellen:</strong> Destatis (Einwohnerzahlen), Kommunalwebsites (Online-Services), smart-city-dialog.de (BMI-Modellprojekte), IW Beh&ouml;rden-Digimeter 2025 (OZG-Umsetzung), dbb 2023 (Personalstruktur), Wikipedia (Verwaltungsstruktur).
     </div>
   </div>
-
-  <footer style="margin-top:24px;padding-top:14px;border-top:1px solid #d0d0d0;font-family:'JetBrains Mono',monospace;font-size:7pt;color:#bbb;display:flex;justify-content:center;gap:6px;flex-wrap:wrap">
-    <span>© 2026 Ainary</span><span>·</span>
-    <a href="methodik.html" style="color:#bbb;text-decoration:none">Methodik</a><span>·</span>
-    <a href="https://ainaryventures.com/de/privacy.html" target="_blank" style="color:#bbb;text-decoration:none">Datenschutz</a><span>·</span>
-    <span>Verschlüsselt</span>
-  </footer>
+  <div id="shared-footer"></div>
 </div>
 </body>
 </html>

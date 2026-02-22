@@ -1,6 +1,6 @@
 # Ainary Demo v10 — Glashütte Kommune Dashboard
 
-**Live:** [florianziesche.github.io/ainary-demo-v10](https://florianziesche.github.io/ainary-demo-v10/)
+**Live:** [florianziesche.github.io/ainary-demo-v11](https://florianziesche.github.io/ainary-demo-v11/)
 
 KI-gestütztes Verwaltungsdashboard für die Gemeinde Glashütte (Sachsen). Demonstriert, wie ein persönlicher KI-Assistent ("Mia") Bürgermeistern bei Verwaltung, Wirtschaftsförderung und Fördermittelrecherche hilft.
 
@@ -82,4 +82,4 @@ git push origin main  # GitHub Pages auto-deploys
 Florian Ziesche · [florian@ainaryventures.com](mailto:florian@ainaryventures.com) · [ainaryventures.com](https://ainaryventures.com)
 
 ---
-© 2026 Ainary Ventures
+© 2026 Ainary
