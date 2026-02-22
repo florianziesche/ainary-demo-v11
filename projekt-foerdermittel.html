@@ -47,6 +47,10 @@
   .fund-card.amber{border-color:var(--amber);background:rgba(180,83,9,.03)}
   .fund-card.grey{border-color:var(--border);background:var(--surface)}
   .fund-title{font-size:10pt;font-weight:600;margin-bottom:6px}
+  .fund-status{display:inline-block;font-family:var(--m);font-size:6.5pt;font-weight:600;padding:2px 6px;border-radius:3px;margin-bottom:6px}
+  .fund-status.done{background:rgba(45,138,78,.1);color:var(--green)}
+  .fund-status.open{background:rgba(157,127,59,.1);color:var(--accent)}
+  .fund-link{font-family:var(--m);font-size:7.5pt;color:var(--accent);margin-top:8px;display:block}
   .fund-meta{font-family:var(--m);font-size:7.5pt;color:var(--muted);margin-bottom:8px}
   .fund-desc{font-size:8.5pt;color:var(--text2);line-height:1.5;margin-bottom:8px}
   .fund-amount{font-family:var(--m);font-size:9pt;font-weight:700;color:var(--green)}
@@ -128,18 +132,22 @@
 
   <div class="fund-grid">
     <div class="fund-card red">
+      <div class="fund-status done">✓ Analysiert</div>
       <div class="fund-title">Breitband-Ausbau Müglitztal</div>
       <div class="fund-meta">Frist: 28.02.2026 (6 Tage!) <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Bundesförderung für Glasfaser-Ausbau. 50-70% Zuschuss. Glashütte aktuell nicht im Los — Bedarfsmeldung erneuern.<span class="ev ev-i">I</span></div>
       <div class="fund-amount">bis €200.000</div>
       <div class="fund-deadline urgent">Frist: 28.02.2026</div>
+      <a class="fund-link" href="analyse-foerdermittel.html#glasfaser">Vollständige Analyse →</a>
     </div>
     <div class="fund-card red">
+      <div class="fund-status done">✓ Analysiert</div>
       <div class="fund-title">Smarte Regionen Sachsen</div>
       <div class="fund-meta">Frist: 15.04.2026 <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Digitalisierungsförderung für Kommunen. Online-Terminvergabe, Bürger-App, digitale Verwaltung. Bis 80% Zuschuss + KfW-Kredit.<span class="ev ev-e">E</span></div>
       <div class="fund-amount">bis €50.000</div>
       <div class="fund-deadline soon">Frist: 15.04.2026</div>
+      <a class="fund-link" href="analyse-foerdermittel.html#smarte-regionen">Vollständige Analyse →</a>
     </div>
   </div>
 
@@ -148,13 +156,16 @@
 
   <div class="fund-grid">
     <div class="fund-card amber">
+      <div class="fund-status done">✓ Analysiert</div>
       <div class="fund-title">Kulturraum Meißen–SOE</div>
       <div class="fund-meta">Frist: 31.08.2026 <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Kulturförderung für Projekte ab 2027. Uhrenmuseum, Musikschule, Kulturveranstaltungen förderfähig. Bis 90% Zuschuss.<span class="ev ev-e">E</span></div>
       <div class="fund-amount">bis 90% Zuschuss</div>
       <div class="fund-deadline ok">Frist: 31.08.2026</div>
+      <a class="fund-link" href="analyse-foerdermittel.html#kulturraum">Vollständige Analyse →</a>
     </div>
     <div class="fund-card amber">
+      <div class="fund-status open">⟳ Identifiziert</div>
       <div class="fund-title">EFRE Transformation I</div>
       <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Digitalisierung KMU (bis 50 MA). 50% Zuschuss. Für Nomos, Müller, lokale Betriebe relevant.<span class="ev ev-j">J</span></div>
@@ -162,6 +173,7 @@
       <div class="fund-deadline ok">Laufend</div>
     </div>
     <div class="fund-card amber">
+      <div class="fund-status open">⟳ Identifiziert</div>
       <div class="fund-title">EFRE Transformation II</div>
       <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Digitalisierung KMU (bis 250 MA). 35% Zuschuss. Für Lange & Söhne, Glashütter Uhrenbetrieb relevant.<span class="ev ev-j">J</span></div>
@@ -169,11 +181,13 @@
       <div class="fund-deadline ok">Laufend</div>
     </div>
     <div class="fund-card amber">
+      <div class="fund-status done">✓ Analysiert</div>
       <div class="fund-title">Förderrichtlinie Demografie</div>
       <div class="fund-meta">Sommer 2026 erwartet <span class="ev ev-a">A</span></div>
       <div class="fund-desc">Projekte gegen Bevölkerungsrückgang. Zuzugsinitiative, Fachkräfte-Anwerbung. Bis 90% Zuschuss. Glashütte: €6,86/m² (unter Dippoldiswalde).<span class="ev ev-j">J</span></div>
       <div class="fund-amount">bis 90% Zuschuss</div>
       <div class="fund-deadline ok">Sommer 2026</div>
+      <a class="fund-link" href="analyse-foerdermittel.html#demografie">Vollständige Analyse →</a>
     </div>
   </div>
 
@@ -182,36 +196,42 @@
 
   <div class="fund-grid">
     <div class="fund-card grey">
+      <div class="fund-status open">⟳ Identifiziert</div>
       <div class="fund-title">ZIM (Zentrales Innovationsprogramm Mittelstand)</div>
       <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
       <div class="fund-desc">F&E-Förderung für KMU. Nomos eigene Kaliber-Entwicklung (DUW) förderfähig.<span class="ev ev-j">J</span></div>
       <div class="fund-amount">F&E-Förderung KMU</div>
     </div>
     <div class="fund-card grey">
+      <div class="fund-status open">⟳ Identifiziert</div>
       <div class="fund-title">OZG-Förderung Freistaat</div>
       <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Online-Antragsassistenten, Betrieb + Support. Vollfinanzierung durch Freistaat Sachsen.<span class="ev ev-e">E</span></div>
       <div class="fund-amount">Vollfinanzierung</div>
     </div>
     <div class="fund-card grey">
+      <div class="fund-status open">⟳ Identifiziert</div>
       <div class="fund-title">EFRE Heranführung</div>
       <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Kleinstunternehmen, Erstdigitalisierung. 60% Zuschuss.<span class="ev ev-e">E</span></div>
       <div class="fund-amount">bis 60% Zuschuss</div>
     </div>
     <div class="fund-card grey">
+      <div class="fund-status open">⟳ Identifiziert</div>
       <div class="fund-title">LEADER Silbernes Erzgebirge</div>
       <div class="fund-meta">31.03.2026 <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Regionalprojekte Tourismus, Infrastruktur, Dorfentwicklung. Bis 75% Zuschuss.<span class="ev ev-e">E</span></div>
       <div class="fund-amount">bis €50.000</div>
     </div>
     <div class="fund-card grey">
+      <div class="fund-status open">⟳ Identifiziert</div>
       <div class="fund-title">Klimaschutzinitiative NKI</div>
       <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Klimaschutzkonzepte (80%), Klimaschutzmanager (90%). Verknüpfbar mit Windkraft-Thematik.<span class="ev ev-j">J</span></div>
       <div class="fund-amount">bis 80% Zuschuss</div>
     </div>
     <div class="fund-card grey">
+      <div class="fund-status open">⟳ Identifiziert</div>
       <div class="fund-title">Städtebauförderung — Lebendige Zentren</div>
       <div class="fund-meta">Jährlich <span class="ev ev-e">E</span></div>
       <div class="fund-desc">Stadtkernsanierung. 2/3 Bund+Land. Historischer Stadtkern + Uhrenmeile = gutes Narrativ.<span class="ev ev-j">J</span></div>
