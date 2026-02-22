@@ -66,7 +66,7 @@
   .timeline-marker .dot.green{background:var(--green)}
   .timeline-marker .dot.today{background:var(--accent);box-shadow:0 0 0 3px rgba(157,127,59,0.25)}
   .timeline-marker .label{font-family:var(--m);font-size:7pt;color:var(--muted);white-space:nowrap;margin-top:14px}
-  .timeline-marker .label-top{font-family:var(--m);font-size:6.5pt;color:var(--red);white-space:nowrap;margin-bottom:14px;font-weight:600}
+  .timeline-marker .label-top{font-family:var(--m);font-size:6pt;color:#fff;background:var(--red);border-radius:3px;padding:1px 4px;white-space:nowrap;margin-top:2px;font-weight:600}
   .timeline-marker .label-today{font-family:var(--m);font-size:7pt;color:var(--accent);white-space:nowrap;margin-top:14px;font-weight:600}
   .timeline-month{font-family:var(--m);font-size:6.5pt;color:var(--light);display:flex;justify-content:space-between}
 
@@ -230,13 +230,13 @@
       <!-- Heute: 22. Feb = Tag 53/365 = 14.5% -->
       <div class="timeline-marker" style="left:14.5%">
         <div class="dot today"></div>
-        <div class="label-today">Heute</div>
+        <div class="label-today" style="transform:translateX(-60%)">Heute</div>
       </div>
       <!-- 28. Feb = Tag 59/365 = 16.2% -->
       <div class="timeline-marker" style="left:16.2%">
-        <div class="label-top">6 Tage!</div>
         <div class="dot red"></div>
         <div class="label">28.02</div>
+        <div class="label-top">6 Tage!</div>
       </div>
       <!-- 31. Mär = Tag 90/365 = 24.7% -->
       <div class="timeline-marker" style="left:24.7%">
