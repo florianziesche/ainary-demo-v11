@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
         '<span style="color:var(--border2);margin:0 2px">·</span>' +
         '<span style="color:var(--light);cursor:default">Abmelden</span>' +
       '</div>' +
-      '<div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-family:var(--m);font-size:8pt">' +
+      '<div class="sh-center" style="display:flex;align-items:center;gap:8px;color:var(--muted);font-family:var(--m);font-size:8pt">' +
         '<span>Glashütte</span><span>☁ 3°C</span>' +
       '</div>' +
-      '<div style="display:flex;align-items:center;gap:8px;font-family:var(--m);font-size:8pt;color:var(--muted)">' +
+      '<div class="sh-right" style="display:flex;align-items:center;gap:8px;font-family:var(--m);font-size:8pt;color:var(--muted)">' +
         '<span id="live-date"></span> <span id="live-time"></span>' +
       '</div>' +
     '</div>' +
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
       '<span id="greeting">' + greet + '</span>, Herr Gleißberg.</div>' +
     '<div style="font-size:10pt;color:var(--text2);margin-bottom:4px">Ihre Wochen-Übersicht für Glashütte.</div>' +
     '<div style="height:1px;background:var(--border2);margin-bottom:8px"></div>' +
-    '<div style="display:flex;gap:0;font-family:var(--m);font-size:7.5pt;margin-bottom:20px">' +
+    '<div class="sh-nav" style="display:flex;gap:0;font-family:var(--m);font-size:7.5pt;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap">' +
       navHTML +
     '</div>';
 
