@@ -8,11 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Navigation tabs with file mappings
   const tabs = [
     { label: "Übersicht", href: "index.html", keys: ["index"] },
-    { label: "Analysen", href: "analyse.html", keys: ["analyse", "analyse-foerdermittel", "analyse-digitalisierung", "analyse-buergerstimmung", "analyse-uhrenindustrie", "analyse-glashuette", "analyse-nomos", "analyse-muehle", "analyse-lange", "analyse-gurofa", "analyse-loeffler", "analyse-badbelzig", "analyse-jena", "analyse-marburg", "analyse-dippoldiswalde", "analyse-gersheim", "analyse-smartregion-auf"] },
+    { label: "Analysen", href: "analyse.html", keys: ["analyse", "analyse-foerdermittel", "analyse-digitalisierung", "analyse-buergerstimmung", "analyse-uhrenindustrie", "analyse-glashuette", "analyse-nomos", "analyse-muehle", "analyse-lange", "analyse-gurofa", "analyse-loeffler", "analyse-badbelzig", "analyse-jena", "analyse-marburg", "analyse-dippoldiswalde", "analyse-gersheim", "analyse-smartregion-auf", "vergleich"] },
     { label: "Projekte", href: "projekte.html", keys: ["projekte"] },
     { label: "Wirtschaft", href: "wirtschaft.html", keys: ["wirtschaft", "firmen", "kommunen"] },
-    { label: "Dokumente", href: "dokumente.html", keys: ["dokumente"] },
-    { label: "Vergleich", href: "vergleich.html", keys: ["vergleich"] }
+    { label: "Dokumente", href: "dokumente.html", keys: ["dokumente"] }
   ];
 
   // Time-based greeting
