@@ -61,30 +61,12 @@
 
   @media print{.portal-hdr,.tabs,.mia,#mia-slot{display:none}.page{padding:16px}}
 </style>
-<script src="bookmarks.js" defer></script><script src="cta-footer.js" defer></script></head>
+<script src="bookmarks.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script></head>
 <body>
 <div class="page">
 
-  <div class="portal-hdr">
-    <div class="portal-left">
-      <a href="index.html" style="display:flex;align-items:center;gap:8px"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
-      <span style="color:var(--light);margin:0 2px">&middot;</span><span style="color:var(--light)">Abmelden</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:8px;color:var(--muted);font-family:var(--m);font-size:8pt">
-      <span>Glashütte</span><span>&#9729; 3°C</span>
-    </div>
-    <div style="font-family:var(--m);font-size:8pt;color:var(--muted)">
-      <span id="live-date"></span> <span id="live-time"></span>
-    </div>
-  </div>
-
-  <div class="tabs">
-    <a href="index.html">Übersicht</a>
-    <a href="analyse.html">Analyse</a>
-    <a href="projekte.html">Projekte</a>
-    <a href="dokumente.html">Dokumente</a>
-    <a href="wirtschaft.html">Wirtschaft</a>
-  </div>
+  <div id="shared-header"></div>
 
   <a href="wirtschaft.html" style="font-family:var(--m);font-size:7.5pt;color:var(--accent);display:inline-block;margin-bottom:16px">&larr; Zurück zum Wirtschaftsverzeichnis</a>
 
