@@ -41,11 +41,11 @@
 
   /* Project cards */
   .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
-  .proj-card{border:1px solid var(--border2);border-radius:8px;padding:16px 20px;background:var(--surface)}
+  .proj-card{border:1px solid var(--border2);border-radius:8px;padding:16px 20px;background:var(--surface);display:flex;flex-direction:column}
   .proj-num{font-family:var(--m);font-size:6.5pt;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
   .proj-name{font-size:10pt;font-weight:600;margin-bottom:4px}
   .proj-desc{font-size:8.5pt;color:var(--text2);line-height:1.4;margin-bottom:8px}
-  .proj-metric{font-family:var(--m);font-size:7.5pt;color:var(--green);font-weight:500}
+  .proj-metric{font-family:var(--m);font-size:7.5pt;color:var(--green);font-weight:500;margin-top:auto;padding-top:8px}
 
   /* Flow steps */
   .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
@@ -111,10 +111,10 @@
 
   <div class="kpi-top">
     <div class="kpi-card"><div class="kpi-num">6</div><div class="kpi-title">KI-Anwendungen</div><div class="kpi-src">Sofort umsetzbar</div></div>
-    <div class="kpi-card"><div class="kpi-num">~240 Std.</div><div class="kpi-title">Einsparpotenzial/Jahr</div><div class="kpi-src">Über alle 6 Anwendungen</div></div>
+    <div class="kpi-card"><div class="kpi-num">~550 Std.</div><div class="kpi-title">Einsparpotenzial/Jahr</div><div class="kpi-src">Über alle 6 Anwendungen · konservativ</div></div>
     <div class="kpi-card"><div class="kpi-num">4–8 Wo.</div><div class="kpi-title">Umsetzungszeit</div><div class="kpi-src">Pro Anwendung</div></div>
   </div>
-  <div class="kpi-aside">Geschätztes Einsparpotenzial: €13.200–19.800/Jahr · <a href="methodik.html">Methodik</a></div>
+  <div class="kpi-aside">Geschätztes Einsparpotenzial: ~€30.000/Jahr · Basis: €55/Std. TVöD E11 · <a href="methodik.html">Methodik</a></div>
 
   <!-- ── ABGESCHLOSSENE & LAUFENDE PROJEKTE ── -->
   <div class="sec">

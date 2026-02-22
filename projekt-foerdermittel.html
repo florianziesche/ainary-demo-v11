@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fördermittel-Dashboard · Glashütte — Ainary</title>
+<link rel="stylesheet" href="shared.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--text:#1a1a1a;--text2:#444;--muted:#777;--light:#bbb;--border:#d0d0d0;--border2:#e8e8e8;--surface:#fafafa;--accent:#9d7f3b;--green:#2d8a4e;--red:#c0392b;--amber:#b45309;--blue:#2563eb;--f:'Inter',-apple-system,sans-serif;--m:'JetBrains Mono',monospace}
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--f);color:var(--text);font-size:10pt;line-height:1.65;background:#fff;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .page{max-width:1040px;margin:0 auto;padding:32px 48px 48px}
+
+  .back{display:inline-flex;align-items:center;gap:5px;font-size:9pt;color:var(--muted);text-decoration:none;margin-bottom:16px}
+  .back:hover{color:var(--text2);text-decoration:none}
+  .back svg{width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:2}
+
+  .doc-hdr{border-bottom:2px solid var(--text);padding-bottom:16px;margin-bottom:20px}
+  .doc-hdr-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:8px}
+  .doc-brand{font-size:9pt;font-weight:500;color:var(--muted);letter-spacing:0.03em}
+  .doc-id{font-family:var(--m);font-size:8pt;color:var(--muted)}
+  .doc-title{font-size:16pt;font-weight:600;letter-spacing:-0.02em;margin-bottom:4px}
+  .doc-sub{font-size:10pt;color:var(--text2);margin-bottom:8px}
+  .doc-meta-row{display:flex;gap:16px;font-size:8pt;color:var(--muted);font-family:var(--m)}
+
+  .ev{font-family:var(--m);font-size:7pt;padding:1px 4px;border-radius:2px;font-weight:600;vertical-align:super;margin-left:1px;cursor:help}
+  .ev-e{color:var(--green);background:rgba(45,138,78,0.08)}
+  .ev-i{color:var(--blue);background:rgba(37,99,235,0.08)}
+  .ev-j{color:var(--accent);background:rgba(200,170,80,0.08)}
+  .ev-a{color:var(--amber);background:rgba(180,83,9,0.08)}
+
+  .sec-label{font-family:var(--m);font-size:7pt;font-weight:500;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:32px;margin-bottom:4px}
+  .sec-title{font-size:18pt;font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
+
+  .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+  .kpi{border:1px solid var(--border2);border-radius:8px;padding:16px;text-align:center;background:var(--surface)}
+  .kpi-val{font-family:var(--m);font-size:18pt;font-weight:700;line-height:1.2}
+  .kpi-label{font-size:8pt;color:var(--text2);margin-top:2px}
+  .kpi-sub{font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:2px}
+
+  .fund-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:24px}
+  .fund-card{border:2px solid;border-radius:8px;padding:16px;background:var(--surface)}
+  .fund-card.red{border-color:var(--red);background:rgba(192,57,43,.03)}
+  .fund-card.amber{border-color:var(--amber);background:rgba(180,83,9,.03)}
+  .fund-card.grey{border-color:var(--border);background:var(--surface)}
+  .fund-title{font-size:10pt;font-weight:600;margin-bottom:6px}
+  .fund-meta{font-family:var(--m);font-size:7.5pt;color:var(--muted);margin-bottom:8px}
+  .fund-desc{font-size:8.5pt;color:var(--text2);line-height:1.5;margin-bottom:8px}
+  .fund-amount{font-family:var(--m);font-size:9pt;font-weight:700;color:var(--green)}
+  .fund-deadline{font-family:var(--m);font-size:8pt;font-weight:600}
+  .fund-deadline.urgent{color:var(--red)}
+  .fund-deadline.soon{color:var(--amber)}
+  .fund-deadline.ok{color:var(--green)}
+
+  .timeline{border:1px solid var(--border2);border-radius:8px;padding:20px;background:var(--surface);margin-bottom:24px}
+  .timeline-title{font-size:9pt;font-weight:600;margin-bottom:16px}
+  .timeline-track{position:relative;height:8px;background:var(--border2);border-radius:4px;margin-bottom:24px}
+  .timeline-marker{position:absolute;top:-12px;display:flex;flex-direction:column;align-items:center}
+  .timeline-marker .dot{width:10px;height:10px;border-radius:50%;margin-bottom:4px}
+  .timeline-marker .dot.red{background:var(--red)}
+  .timeline-marker .dot.amber{background:var(--amber)}
+  .timeline-marker .dot.green{background:var(--green)}
+  .timeline-marker .label{font-family:var(--m);font-size:7pt;color:var(--muted);white-space:nowrap}
+  .timeline-month{font-family:var(--m);font-size:6.5pt;color:var(--light);display:flex;justify-content:space-between}
+
+  .summary-card{border:1px solid var(--accent);border-radius:8px;padding:16px;background:rgba(200,170,80,0.03);margin-bottom:24px}
+  .summary-title{font-size:9pt;font-weight:600;color:var(--accent);margin-bottom:12px}
+  .summary-amount{font-family:var(--m);font-size:20pt;font-weight:700;color:var(--accent);margin-bottom:8px}
+  .summary-breakdown{font-size:8.5pt;color:var(--text2);line-height:1.6}
+
+  .next-step{border:1px solid var(--green);border-radius:8px;padding:16px;background:rgba(45,138,78,.03);margin-bottom:24px}
+  .next-step-title{font-size:9pt;font-weight:600;color:var(--green);margin-bottom:8px}
+  .next-step-text{font-size:9pt;color:var(--text2);line-height:1.6}
+
+  .footer-msg{text-align:center;padding:20px;border-top:1px solid var(--border2);margin-top:32px}
+  .footer-msg-text{font-size:10pt;color:var(--text2)}
+
+  @media(max-width:700px){
+    .page{padding:20px 16px}
+    .fund-grid,.kpi-grid{grid-template-columns:1fr}
+  }
+</style>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="bookmarks.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+<meta property="og:title" content="Fördermittel-Dashboard · Glashütte — Ainary">
+<meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:image" content="https://florianziesche.github.io/ainary-demo-v11/og-image.svg">
+<meta property="og:type" content="website">
+<meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+</head>
+<body>
+<div class="page">
+
+  <div id="shared-header"></div>
+  <div id="mia-slot"></div>
+
+  <a href="projekte.html" class="back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Zurück zu Projekte</a>
+
+  <div class="doc-hdr">
+    <div class="doc-hdr-row">
+      <span class="doc-brand">Ainary Fördermittel-Dashboard</span>
+      <span class="doc-id">FD-2026-0222-GH</span>
+    </div>
+    <div class="doc-title">Fördermittel-Dashboard · Glashütte</div>
+    <div class="doc-sub">11 Programme identifiziert · 3 mit Frist · Automatisch aktualisiert<span class="ev ev-e">E</span></div>
+    <div class="doc-meta-row">
+      <span>Für: Stadt Glashütte/Sa.</span>
+      <span>Aktualisiert: 22.02.2026</span>
+      <span>Datenbanken: 14</span>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-val">11</div><div class="kpi-label">Programme identifiziert</div><div class="kpi-sub">Alle relevant für Glashütte <span class="ev ev-e">E</span></div></div>
+    <div class="kpi"><div class="kpi-val">3</div><div class="kpi-label">Mit aktiver Frist</div><div class="kpi-sub">Nächste 8 Wochen <span class="ev ev-e">E</span></div></div>
+    <div class="kpi"><div class="kpi-val">Auto</div><div class="kpi-label">Automatisch aktualisiert</div><div class="kpi-sub">Täglich überprüft <span class="ev ev-e">E</span></div></div>
+  </div>
+
+  <div class="sec-label">Dringlich</div>
+  <div class="sec-title">Sofort handeln — Fristen in den nächsten 8 Wochen</div>
+
+  <div class="fund-grid">
+    <div class="fund-card red">
+      <div class="fund-title">Breitband-Ausbau Müglitztal</div>
+      <div class="fund-meta">Frist: 28.02.2026 (6 Tage!) <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Bundesförderung für Glasfaser-Ausbau. 50-70% Zuschuss. Glashütte aktuell nicht im Los — Bedarfsmeldung erneuern.<span class="ev ev-i">I</span></div>
+      <div class="fund-amount">bis €200.000</div>
+      <div class="fund-deadline urgent">Frist: 28.02.2026</div>
+    </div>
+    <div class="fund-card red">
+      <div class="fund-title">Smarte Regionen Sachsen</div>
+      <div class="fund-meta">Frist: 15.04.2026 <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Digitalisierungsförderung für Kommunen. Online-Terminvergabe, Bürger-App, digitale Verwaltung. Bis 80% Zuschuss + KfW-Kredit.<span class="ev ev-e">E</span></div>
+      <div class="fund-amount">bis €50.000</div>
+      <div class="fund-deadline soon">Frist: 15.04.2026</div>
+    </div>
+  </div>
+
+  <div class="sec-label">Aktiv</div>
+  <div class="sec-title">Vorbereiten — Fristen bis Ende 2026</div>
+
+  <div class="fund-grid">
+    <div class="fund-card amber">
+      <div class="fund-title">Kulturraum Meißen–SOE</div>
+      <div class="fund-meta">Frist: 31.08.2026 <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Kulturförderung für Projekte ab 2027. Uhrenmuseum, Musikschule, Kulturveranstaltungen förderfähig. Bis 90% Zuschuss.<span class="ev ev-e">E</span></div>
+      <div class="fund-amount">bis €150.000</div>
+      <div class="fund-deadline ok">Frist: 31.08.2026</div>
+    </div>
+    <div class="fund-card amber">
+      <div class="fund-title">EFRE Transformation I</div>
+      <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Digitalisierung KMU (bis 50 MA). 50% Zuschuss. Für Nomos, Müller, lokale Betriebe relevant.<span class="ev ev-j">J</span></div>
+      <div class="fund-amount">bis €30.000</div>
+      <div class="fund-deadline ok">Laufend</div>
+    </div>
+    <div class="fund-card amber">
+      <div class="fund-title">EFRE Transformation II</div>
+      <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Digitalisierung KMU (bis 250 MA). 35% Zuschuss. Für Lange & Söhne, Glashütter Uhrenbetrieb relevant.<span class="ev ev-j">J</span></div>
+      <div class="fund-amount">bis €35.000</div>
+      <div class="fund-deadline ok">Laufend</div>
+    </div>
+    <div class="fund-card amber">
+      <div class="fund-title">Förderrichtlinie Demografie</div>
+      <div class="fund-meta">Sommer 2026 erwartet <span class="ev ev-a">A</span></div>
+      <div class="fund-desc">Projekte gegen Bevölkerungsrückgang. Zuzugsinitiative, Fachkräfte-Anwerbung. Bis 90% Zuschuss. Glashütte: €6,86/m² (unter Dippoldiswalde).<span class="ev ev-j">J</span></div>
+      <div class="fund-amount">bis €80.000</div>
+      <div class="fund-deadline ok">Sommer 2026</div>
+    </div>
+  </div>
+
+  <div class="sec-label">Identifiziert</div>
+  <div class="sec-title">Im Blick behalten — weitere Programme</div>
+
+  <div class="fund-grid">
+    <div class="fund-card grey">
+      <div class="fund-title">ZIM (Zentrales Innovationsprogramm Mittelstand)</div>
+      <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">F&E-Förderung für KMU. Nomos eigene Kaliber-Entwicklung (DUW) förderfähig.<span class="ev ev-j">J</span></div>
+      <div class="fund-amount">bis €380.000</div>
+    </div>
+    <div class="fund-card grey">
+      <div class="fund-title">OZG-Förderung Freistaat</div>
+      <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Online-Antragsassistenten, Betrieb + Support. Vollfinanzierung durch Freistaat Sachsen.<span class="ev ev-e">E</span></div>
+      <div class="fund-amount">Vollfinanzierung</div>
+    </div>
+    <div class="fund-card grey">
+      <div class="fund-title">EFRE Heranführung</div>
+      <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Kleinstunternehmen, Erstdigitalisierung. 60% Zuschuss.<span class="ev ev-e">E</span></div>
+      <div class="fund-amount">bis €6.000</div>
+    </div>
+    <div class="fund-card grey">
+      <div class="fund-title">LEADER Silbernes Erzgebirge</div>
+      <div class="fund-meta">31.03.2026 <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Regionalprojekte Tourismus, Infrastruktur, Dorfentwicklung. Bis 75% Zuschuss.<span class="ev ev-e">E</span></div>
+      <div class="fund-amount">bis €50.000</div>
+    </div>
+    <div class="fund-card grey">
+      <div class="fund-title">Klimaschutzinitiative NKI</div>
+      <div class="fund-meta">Laufend <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Klimaschutzkonzepte (80%), Klimaschutzmanager (90%). Verknüpfbar mit Windkraft-Thematik.<span class="ev ev-j">J</span></div>
+      <div class="fund-amount">bis €65.000</div>
+    </div>
+    <div class="fund-card grey">
+      <div class="fund-title">Städtebauförderung — Lebendige Zentren</div>
+      <div class="fund-meta">Jährlich <span class="ev ev-e">E</span></div>
+      <div class="fund-desc">Stadtkernsanierung. 2/3 Bund+Land. Historischer Stadtkern + Uhrenmeile = gutes Narrativ.<span class="ev ev-j">J</span></div>
+      <div class="fund-amount">variabel</div>
+    </div>
+  </div>
+
+  <div class="sec-label">Timeline</div>
+  <div class="sec-title">Fristen-Übersicht 2026</div>
+
+  <div class="timeline">
+    <div class="timeline-title">Alle Fristen auf einen Blick</div>
+    <div class="timeline-track">
+      <div class="timeline-marker" style="left:4%">
+        <div class="dot red"></div>
+        <div class="label">28.02</div>
+      </div>
+      <div class="timeline-marker" style="left:13%">
+        <div class="dot amber"></div>
+        <div class="label">31.03</div>
+      </div>
+      <div class="timeline-marker" style="left:22%">
+        <div class="dot amber"></div>
+        <div class="label">15.04</div>
+      </div>
+      <div class="timeline-marker" style="left:60%">
+        <div class="dot green"></div>
+        <div class="label">31.08</div>
+      </div>
+    </div>
+    <div class="timeline-month">
+      <span>Feb</span><span>Mär</span><span>Apr</span><span>Mai</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Okt</span><span>Nov</span><span>Dez</span>
+    </div>
+  </div>
+
+  <div class="sec-label">Gesamtpotenzial</div>
+  <div class="sec-title">Was möglich ist</div>
+
+  <div class="summary-card">
+    <div class="summary-title">Identifiziertes Gesamtpotenzial</div>
+    <div class="summary-amount">€215.000 – €580.000</div>
+    <div class="summary-breakdown">
+      <strong>Aufschlüsselung:</strong><br>
+      • Breitband: €200k (50-70% Zuschuss)<span class="ev ev-e">E</span><br>
+      • Kulturraum: €150k (90% Zuschuss)<span class="ev ev-e">E</span><br>
+      • Smarte Regionen: €50k (80% Zuschuss)<span class="ev ev-e">E</span><br>
+      • Demografie: €80k (90% Zuschuss)<span class="ev ev-a">A</span><br>
+      • EFRE + ZIM (für lokale Betriebe): €100k<span class="ev ev-j">J</span><br><br>
+      <strong>Hinweis:</strong> Tatsächliches Fördervolumen hängt von Projektgrößen, Antragstellung und Bewilligungsquoten ab.<span class="ev ev-j">J</span> Alle Zahlen sind Maximalbeträge.
+    </div>
+  </div>
+
+  <div class="next-step">
+    <div class="next-step-title">Nächster Schritt</div>
+    <div class="next-step-text">
+      <strong>Antrag Breitband Müglitztal — Frist 28.02.2026</strong><br>
+      Mia kann den Antrags-Entwurf in 2 Tagen vorbereiten.<span class="ev ev-j">J</span> Kontakt: Kati Zuber, Stabsstelle Breitband, Landratsamt Pirna. Eigentümererklärungen vorbereiten. Potenzial: €200.000 (50-70% Zuschuss).<span class="ev ev-e">E</span>
+    </div>
+  </div>
+
+  <div class="footer-msg">
+    <div class="footer-msg-text">Automatische Überwachung aller relevanten Förderdatenbanken. Neue Programme werden sofort erkannt.</div>
+  </div>
+
+  <footer style="margin-top:24px;padding-top:14px;border-top:1px solid #d0d0d0;font-family:'JetBrains Mono',monospace;font-size:7pt;color:#bbb;display:flex;justify-content:center;gap:6px;flex-wrap:wrap">
+    <span>© 2026 Ainary</span><span>·</span>
+    <a href="methodik.html" style="color:#bbb;text-decoration:none">Methodik</a><span>·</span>
+    <a href="https://ainaryventures.com/de/privacy.html" target="_blank" style="color:#bbb;text-decoration:none">Datenschutz</a><span>·</span>
+    <span>Verschlüsselt</span>
+  </footer>
+
+</div>
+
+<div id="shared-footer"></div>
+</body>
+</html>
