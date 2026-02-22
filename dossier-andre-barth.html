@@ -7,17 +7,17 @@
 <meta name="robots" content="noindex, nofollow">
 <style>
   :root {
-    --bg: #0d1117;
-    --card: #161b22;
-    --card-border: #30363d;
-    --text: #c9d1d9;
-    --text-muted: #8b949e;
-    --accent: #C8A855;
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --card-border: #e5e2d9;
+    --text: #2c2c2c;
+    --text-muted: #7a7568;
+    --accent: #B8960C;
     --accent2: #1a1a2e;
-    --red: #f85149;
-    --green: #3fb950;
-    --yellow: #d29922;
-    --purple: #bc8cff;
+    --red: #c0392b;
+    --green: #27864a;
+    --yellow: #b8860b;
+    --purple: #7b5ea7;
     --font: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --mono: 'SF Mono', SFMono-Regular, Consolas, monospace;
   }
@@ -26,7 +26,7 @@
   
   /* Header */
   .dossier-header {
-    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a1e2e 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #232340 50%, #2a2a4a 100%);
     border-bottom: 1px solid var(--card-border);
     padding: 48px 32px 40px;
     text-align: center;
@@ -38,13 +38,13 @@
     top: 12px;
     right: 16px;
     font: 10px var(--mono);
-    color: var(--red);
+    color: #ff6b6b;
     letter-spacing: 2px;
-    opacity: 0.7;
+    opacity: 0.8;
   }
   .dossier-header .label {
     font: 11px var(--mono);
-    color: var(--accent);
+    color: #C8A855;
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 12px;
@@ -57,12 +57,12 @@
   }
   .dossier-header .subtitle {
     font-size: 16px;
-    color: var(--text-muted);
+    color: #a0a0b0;
   }
   .dossier-header .meta {
     margin-top: 16px;
     font: 12px var(--mono);
-    color: var(--text-muted);
+    color: #8888a0;
   }
   
   /* Content */
@@ -82,7 +82,7 @@
   }
   h3 {
     font-size: 18px;
-    color: #fff;
+    color: #1a1a1a;
     margin-bottom: 12px;
   }
   
@@ -93,6 +93,7 @@
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   }
   
   /* Profile Grid */
@@ -103,7 +104,7 @@
   }
   .profile-item { display: flex; flex-direction: column; }
   .profile-item .label { font: 11px var(--mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
-  .profile-item .value { font-size: 15px; color: #fff; }
+  .profile-item .value { font-size: 15px; color: #1a1a1a; font-weight: 500; }
   
   /* Timeline */
   .timeline { position: relative; padding-left: 28px; }
@@ -130,7 +131,7 @@
     height: 10px;
     border-radius: 50%;
     background: var(--card-border);
-    border: 2px solid var(--bg);
+    border: 2px solid var(--card);
   }
   .tl-item.highlight::before { background: var(--accent); }
   .tl-item.alert::before { background: var(--red); }
@@ -142,8 +143,8 @@
   /* Tables */
   table { width: 100%; border-collapse: collapse; font-size: 14px; }
   th { text-align: left; font: 11px var(--mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; padding: 8px 12px; border-bottom: 1px solid var(--card-border); }
-  td { padding: 8px 12px; border-bottom: 1px solid #21262d; vertical-align: top; }
-  tr:hover { background: rgba(88,166,255,0.04); }
+  td { padding: 8px 12px; border-bottom: 1px solid #ede9e0; vertical-align: top; }
+  tr:hover { background: rgba(184,150,12,0.04); }
   
   /* Tags */
   .tag {
@@ -153,11 +154,11 @@
     border-radius: 12px;
     margin: 0 2px;
   }
-  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
-  .tag-yellow { background: rgba(210,153,34,0.15); color: var(--yellow); }
-  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
-  .tag-blue { background: rgba(200,168,85,0.15); color: var(--accent); }
-  .tag-purple { background: rgba(188,140,255,0.15); color: var(--purple); }
+  .tag-green { background: rgba(39,134,74,0.1); color: var(--green); }
+  .tag-yellow { background: rgba(184,134,11,0.1); color: var(--yellow); }
+  .tag-red { background: rgba(192,57,43,0.1); color: var(--red); }
+  .tag-blue { background: rgba(184,150,12,0.1); color: var(--accent); }
+  .tag-purple { background: rgba(123,94,167,0.1); color: var(--purple); }
   
   /* Quotes */
   .quote-block {
@@ -170,7 +171,7 @@
   .quote-text {
     font-size: 15px;
     font-style: italic;
-    color: #fff;
+    color: #1a1a1a;
     line-height: 1.6;
   }
   .quote-source {
@@ -213,10 +214,10 @@
     line-height: 32px;
   }
   .election-bar > div { display: flex; align-items: center; justify-content: center; }
-  .eb-barth { background: #0069d9; }
-  .eb-franz { background: #6c757d; }
-  .eb-goetze { background: #5a6268; }
-  .eb-rest { background: #343a40; }
+  .eb-barth { background: #2a5298; }
+  .eb-franz { background: #8c8c8c; }
+  .eb-goetze { background: #aaa; }
+  .eb-rest { background: #ccc; color: #555; }
   
   /* Social cards */
   .social-grid {
@@ -239,7 +240,7 @@
   }
   .social-card .handle {
     font-size: 16px;
-    color: #fff;
+    color: #1a1a1a;
     margin-bottom: 4px;
   }
   .social-card .handle a { color: var(--accent); text-decoration: none; }
@@ -257,7 +258,7 @@
     flex-direction: column;
     margin: 0 auto 12px;
   }
-  .score-ring .num { font-size: 36px; font-weight: 700; color: #fff; }
+  .score-ring .num { font-size: 36px; font-weight: 700; color: #1a1a1a; }
   .score-ring .of { font: 12px var(--mono); color: var(--text-muted); }
   
   /* Responsive */
@@ -272,11 +273,8 @@
   
   /* Print */
   @media print {
-    body { background: #fff; color: #000; }
-    .card, .quote-block, .social-card { border-color: #ccc; background: #fafafa; }
-    .dossier-header { background: #f5f5f5; }
-    .section-title { color: #333; }
-    .tag { border: 1px solid #ccc; }
+    .dossier-header { background: #1a1a2e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card { box-shadow: none; border-color: #ddd; }
   }
   
   /* Utility */
@@ -450,9 +448,9 @@
       <tr><td>Attila Dorkó</td><td>parteilos</td><td>Kriminalpolizist</td><td>4,4%</td></tr>
     </table>
     <div class="mt-16" style="display:flex; gap:24px; flex-wrap:wrap;">
-      <div><span class="label mono small">WAHLBETEILIGUNG</span><br><strong style="font-size:20px; color:#fff;">70,8%</strong></div>
-      <div><span class="label mono small">STIMMBERECHTIGTE</span><br><strong style="font-size:20px; color:#fff;">~6.300</strong></div>
-      <div><span class="label mono small">WAHLGANG</span><br><strong style="font-size:20px; color:#fff;">1. (keine Stichwahl)</strong></div>
+      <div><span class="label mono small">WAHLBETEILIGUNG</span><br><strong style="font-size:20px; color:#1a1a1a; font-weight:600;">70,8%</strong></div>
+      <div><span class="label mono small">STIMMBERECHTIGTE</span><br><strong style="font-size:20px; color:#1a1a1a; font-weight:600;">~6.300</strong></div>
+      <div><span class="label mono small">WAHLGANG</span><br><strong style="font-size:20px; color:#1a1a1a; font-weight:600;">1. (keine Stichwahl)</strong></div>
     </div>
     <div class="mt-16">
       <h3>AfD-Entwicklung in Altenberg</h3>
@@ -525,7 +523,7 @@
 <div class="section">
   <div class="section-title">06 — Kritische Positionen & Eigene Aussagen</div>
   
-  <div class="card" style="background:#1a1e2e; margin-bottom:20px;">
+  <div class="card" style="background:#f0ede6; margin-bottom:20px;">
     <p><strong>Kontext:</strong> Barth gehört einer Partei an, die vom Verfassungsschutz als <strong>"gesichert rechtsextrem"</strong> eingestuft wird (Sächsische Zeitung). Die folgenden Positionen sind durch Primärquellen (eigene Website, Landtagsprotokolle, Interviews) belegt.</p>
   </div>
 
@@ -675,7 +673,7 @@
   
   <h3 class="mt-16">K) Zusammenfassung: Kritisches Profil</h3>
   
-  <div class="card" style="background:#1a1e2e;">
+  <div class="card" style="background:#f0ede6;">
     <table>
       <tr><th>Kategorie</th><th>Schwere</th><th>Evidenz</th></tr>
       <tr><td>Terroranschlag-Relativierung ("Anis Amri 2")</td><td><span class="tag tag-red">SCHWERWIEGEND</span></td><td><span class="tag tag-green">99% — WamS Primärquelle</span></td></tr>
@@ -847,7 +845,7 @@
       <tr><td><strong>AfD Sachsen</strong></td><td>Partei</td><td>Fraktion feiert Ergebnis</td><td><span class="tag tag-green">Positiv</span></td></tr>
     </table>
     
-    <div class="card mt-16" style="background:#1a1e2e;">
+    <div class="card mt-16" style="background:#f0ede6;">
       <h3>Sentiment-Fazit</h3>
       <p>Die Berichterstattung teilt sich in <strong>drei klare Lager</strong>:</p>
       <ul style="padding-left:20px; margin-top:8px;">
@@ -928,7 +926,7 @@
     </table>
   </div>
   
-  <div class="card mt-16" style="background:#1a1e2e;">
+  <div class="card mt-16" style="background:#f0ede6;">
     <h3>Social Media Bewertung</h3>
     <table>
       <tr><th>Dimension</th><th>Bewertung</th></tr>
@@ -1043,7 +1041,7 @@
     </table>
   </div>
   
-  <div class="card mt-8" style="background:#1a1e2e;">
+  <div class="card mt-8" style="background:#f0ede6;">
     <h3>Strategische Implikationen</h3>
     <table>
       <tr><th>Faktor</th><th>Bewertung</th></tr>
@@ -1117,7 +1115,7 @@
   <div class="section-title">14 — Ainary Trust Score</div>
   <div class="card" style="text-align:center;">
     <div class="score-ring" style="background: conic-gradient(var(--accent) 0% 78%, var(--card-border) 78% 100%); margin: 20px auto;">
-      <div style="background: var(--card); width: 96px; height: 96px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <div style="background: #fff; width: 96px; height: 96px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <div class="num">7.8</div>
         <div class="of">/10</div>
       </div>
