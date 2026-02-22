@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded",function(){
         <span style="color:var(--text2,#444);cursor:pointer" onclick="if(typeof sendChip==='function'){sendChip('Dokument hochladen')}">&#8613; Dokument hochladen</span>
       </div>
       <div style="font-family:var(--m,monospace);font-size:6.5pt;color:var(--light,#bbb);margin-top:10px">Beispiele: Wahleinblicke 2026 \u00b7 Tourismuskonzept \u00b7 Fachkr\u00e4fte-Kampagne \u00b7 Energie-Audit \u00b7 Gemeinderatsprotokolle</div>
+      <div style="display:flex;justify-content:center;gap:16px;margin-top:10px;font-family:var(--m,monospace);font-size:6.5pt"><a href="#" onclick="event.preventDefault();window.print()" style="color:var(--light,#bbb)">Druckversion</a><span style="color:var(--light,#bbb)">\u00b7</span><a href="#" onclick="event.preventDefault();if(typeof sendChip==='function'){sendChip('Weiterempfehlen')}" style="color:var(--light,#bbb)">Empfehlen</a></div>
     </div>
   `;
 
