@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gurofa GmbH — Kurz-Analyse · Ainary</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--text:#1a1a1a;--text2:#444;--muted:#777;--light:#bbb;--border:#d0d0d0;--border2:#e8e8e8;--surface:#fafafa;--accent:#9d7f3b;--green:#2d8a4e;--red:#c0392b;--amber:#b45309;--f:'Inter',-apple-system,sans-serif;--m:'JetBrains Mono',monospace}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--f);color:var(--text);font-size:10pt;line-height:1.65;background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.page{max-width:1040px;margin:0 auto;padding:32px 48px 48px}
+.portal-hdr{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;margin-bottom:32px;border-bottom:1px solid var(--border2);font-size:8pt}
+.portal-left{display:flex;align-items:center;gap:8px}
+.brand-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.brand-name{font-weight:500;color:var(--muted)}
+.portal-right{font-family:var(--m);color:var(--muted)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.kpi{border:1px solid var(--border2);border-radius:8px;padding:16px;text-align:center;background:var(--surface)}
+.kpi-val{font-family:var(--m);font-size:18pt;font-weight:700;line-height:1.2}
+.kpi-label{font-size:8pt;color:var(--text2);margin-top:2px}
+.kpi-sub{font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:2px}
+.tag{font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;vertical-align:super}
+.tag-e{background:rgba(45,138,78,.1);color:var(--green)}
+.tag-i{background:rgba(157,127,59,.1);color:var(--accent)}
+.tag-j{background:rgba(180,83,9,.1);color:var(--amber)}
+.tag-a{background:rgba(192,57,43,.1);color:var(--red)}
+.sec-label{font-family:var(--m);font-size:7pt;font-weight:500;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:32px;margin-bottom:4px}
+.sec-title{font-size:18pt;font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
+.content{font-size:9.5pt;line-height:1.7;color:var(--text2);margin-bottom:16px}
+.content strong{color:var(--text)}
+.ftr{text-align:center;padding:24px 0;font-family:var(--m);font-size:6.5pt;color:var(--light);border-top:1px solid var(--border2);margin-top:40px}
+</style>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="bookmarks.js" defer></script><script src="cta-footer.js" defer></script></head>
+<body>
+<div class="page">
+  <div class="portal-hdr">
+    <div class="portal-left">
+      <a href="index.html" style="display:flex;align-items:center;gap:8px"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
+      <span style="color:var(--light);margin:0 2px">·</span><span style="color:var(--light)">Abmelden</span>
+    </div>
+    <div class="portal-center" style="display:flex;align-items:center;gap:8px;color:var(--muted);font-family:var(--m);font-size:8pt">
+      <span>Glashütte</span><span>☁ 3°C</span>
+    </div>
+    <div class="portal-right" style="font-family:var(--m);font-size:8pt;color:var(--muted)">
+      <span id="live-date"></span> <span id="live-time"></span>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:0;font-family:var(--m);font-size:7.5pt;margin-bottom:24px">
+    <a href="index.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Übersicht</a>
+    <a href="analyse.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Analyse</a>
+    <a href="projekte.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Projekte</a>
+    <a href="dokumente.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Dokumente</a>
+    <a href="wirtschaft.html" style="padding:6px 14px;border-bottom:2px solid var(--accent);color:var(--accent);font-weight:500">Wirtschaft</a>
+  </div>
+
+  <a href="wirtschaft.html" style="font-family:var(--m);font-size:7.5pt;color:var(--accent);display:inline-block;margin-bottom:16px">← Zurück zum Wirtschaftsverzeichnis</a>
+
+  <div id="mia-slot"></div>
+  
+  <!-- Report Header -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
+    <div style="font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.12em;text-transform:uppercase">Ainary Firmenanalyse</div>
+    <span data-bookmark="analyse-gurofa" onclick="toggleBookmark('analyse-gurofa')" style="cursor:pointer;font-size:14pt;margin-left:8px;transition:color .12s" title="Lesezeichen"><span style="display:inline-block;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--light);background:transparent"></span></span>
+    <div style="font-family:var(--m);font-size:7pt;color:var(--light)">FA-2026-0222-GU</div>
+  </div>
+
+  <div style="font-size:28pt;font-weight:700;letter-spacing:-.03em;margin-bottom:4px">Gurofa GmbH</div>
+  <div style="font-size:10pt;color:var(--text2);margin-bottom:12px">Feinmechanik · Zulieferer · Schlottwitz — Datenlage unzureichend</div>
+
+  <div style="display:flex;gap:16px;flex-wrap:wrap;font-family:var(--m);font-size:7.5pt;color:var(--muted);margin-bottom:8px">
+    <span>Datum: 2026-02-22</span><span>Quellen: 2</span>
+  </div>
+
+  <div style="margin-bottom:6px;display:flex;align-items:center;gap:8px">
+    <span style="font-family:var(--m);font-size:7.5pt;color:var(--muted)">Confidence:</span>
+    <div style="flex:0 0 120px;height:6px;background:var(--border2);border-radius:3px;overflow:hidden">
+      <div style="width:35%;height:100%;border-radius:3px;background:var(--red)"></div>
+    </div>
+    <span style="font-family:var(--m);font-size:8pt;font-weight:600;color:var(--red)">35%</span>
+  </div>
+
+  <div style="font-family:var(--m);font-size:7pt;color:var(--muted);margin-bottom:16px">
+    Ihr Aufwand ohne Ainary: ~3–5 Std. · Einsparpotenzial €165–275 · Basis: €55/Std. TVöD E11
+  </div>
+
+  <div style="width:100%;height:2px;background:var(--accent);opacity:.3;margin-bottom:16px"></div>
+
+  <div style="display:flex;gap:12px;font-size:6.5pt;margin-bottom:24px;flex-wrap:wrap">
+    <span style="display:flex;align-items:center;gap:3px"><span style="font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;background:rgba(45,138,78,.1);color:var(--green)">E</span> Evidence — belegt</span>
+    <span style="display:flex;align-items:center;gap:3px"><span style="font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;background:rgba(157,127,59,.1);color:var(--accent)">I</span> Inference — abgeleitet</span>
+    <span style="display:flex;align-items:center;gap:3px"><span style="font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;background:rgba(180,83,9,.1);color:var(--amber)">J</span> Judgment — Einschätzung</span>
+    <span style="display:flex;align-items:center;gap:3px"><span style="font-family:var(--m);font-size:5.5pt;padding:1px 4px;border-radius:2px;font-weight:600;background:rgba(192,57,43,.1);color:var(--red)">A</span> Assumption — Annahme</span>
+  </div>
+
+  <div style="border:1px solid var(--border2);border-radius:8px;padding:16px;margin-bottom:24px;background:var(--surface)">
+    <div style="font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Beipackzettel — Lesen vor Verwendung</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;font-size:8.5pt">
+      <div>
+        <div style="font-weight:600;color:var(--green);margin-bottom:6px">Was dieser Report kann</div>
+        <ul style="margin:0;padding-left:16px;color:var(--text2);line-height:1.7">
+          <li>Branche und Standort dokumentieren</li>
+          <li>Generische Fördermöglichkeiten auflisten</li>
+          <li>Branchen-typische KI-Ansatzpunkte nennen</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-weight:600;color:var(--red);margin-bottom:6px">Was dieser Report NICHT kann</div>
+        <ul style="margin:0;padding-left:16px;color:var(--text2);line-height:1.7">
+          <li>Firmenspezifische Aussagen treffen</li>
+          <li>Mitarbeiterzahl oder Umsatz bestätigen</li>
+          <li>Förderfähigkeit prüfen</li>
+          <li>Echte Unternehmensanalyse ersetzen</li>
+        </ul>
+      </div>
+    </div>
+    <div style="font-size:7.5pt;color:var(--muted);margin-top:12px;padding-top:8px;border-top:1px solid var(--border2)">
+      <strong>Methodik:</strong> Stadtbranchenbuch Glashütte. Keine Website, keine Finanzdaten, keine Primärdaten.<br>
+      <strong>Letzte Aktualisierung:</strong> 2026-02-22T02:00 · <strong>Gültig bis:</strong> 2026-03-22
+    </div>
+  </div>
+
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="kpi-val">10–30</div><div class="kpi-label">Mitarbeiter</div><div class="kpi-sub">geschätzt <span class="tag tag-a">A</span></div></div>
+    <div class="kpi"><div class="kpi-val">Feinmechanik</div><div class="kpi-label">Branche</div><div class="kpi-sub">Zulieferer <span class="tag tag-e">E</span></div></div>
+    <div class="kpi"><div class="kpi-val">Schlottwitz</div><div class="kpi-label">Standort</div><div class="kpi-sub">OT Glashütte <span class="tag tag-e">E</span></div></div>
+    <div class="kpi"><div class="kpi-val" style="color:var(--light)">Unbekannt</div><div class="kpi-label">Trend</div><div class="kpi-sub">keine Daten <span class="tag tag-a">A</span></div></div>
+  </div>
+
+  <div class="sec-label">Situation</div>
+  <div class="sec-title">Typischer sächsischer Zulieferer</div>
+  <div class="content">Gurofa GmbH ist ein Feinmechanik-Zulieferer in Schlottwitz (Ortsteil von Glashütte). <span class="tag tag-e">E</span> Wahrscheinlich Zulieferer für die lokale Uhrenindustrie und/oder den regionalen Maschinenbau. <span class="tag tag-a">A</span><br><br><strong>Ehrlichkeit:</strong> Für dieses Unternehmen liegen keine öffentlichen Finanzdaten, keine Mitarbeiterzahlen und kein Webauftritt vor. Alles Folgende sind Branchen-Annahmen, keine firmenspezifischen Fakten. <span class="tag tag-a">A</span></div>
+
+  <div class="sec-label">Fördermittel</div>
+  <div class="sec-title">Wahrscheinlich hohe Förderquote</div>
+  <div class="content">
+    <strong>EFRE Sachsen — Heranführung:</strong> bis 60% Zuschuss. Als Kleinstunternehmen wahrscheinlich förderfähig — aber Status muss geprüft werden. <span class="tag tag-i">I</span><br><br>
+    <strong>EFRE Sachsen — Transformation:</strong> bis 50% für CNC-Automation, ERP-Einführung, digitale Auftragsverwaltung. <span class="tag tag-e">E</span><br><br>
+    <strong>Meistergründungsprämie Sachsen:</strong> Bis €10.000, falls Handwerksbetrieb mit Meisterpflicht. <span class="tag tag-i">I</span>
+  </div>
+
+  <div class="sec-label">KI-Potenzial</div>
+  <div class="sec-title">Branchen-Ableitungen (nicht firmenpezifisch)</div>
+  <div class="content">
+    <strong>CNC-Optimierung:</strong> Vorhersage von Werkzeugverschleiß, Qualitätsprognose pro Charge. Branchenstandard bei größeren Zulieferern, bei kleinen KMU selten implementiert. <span class="tag tag-i">I</span><br><br>
+    <strong>Auftragsmanagement:</strong> Automatische Angebotserstellung, Lieferzeitprognose basierend auf Maschinenauslastung. <span class="tag tag-j">J</span><br><br>
+    <strong>QM-Dokumentation:</strong> Automatisierte Messprotokolle, Qualitätsmanagement nach ISO 9001. <span class="tag tag-j">J</span>
+  </div>
+
+  <div class="sec-label">Einschätzung</div>
+  <div class="sec-title">Ehrliche Bewertung</div>
+  <div class="content" style="border-left:3px solid var(--red);padding-left:16px">
+    <strong>Wir wissen zu wenig.</strong> Diese Analyse basiert auf dem Brancheneintrag "Feinmechanik, Schlottwitz" und allgemeinen Branchenkenntnissen. Das ist keine Unternehmensanalyse — es ist eine Branchen-Hypothese. <span class="tag tag-a">A</span><br><br>
+    <strong>Empfehlung:</strong> Gespräch suchen, konkreten Bedarf ermitteln. Erst danach kann eine seriöse Einschätzung erfolgen. Alles andere wäre Spekulation, die wir hier nicht als Analyse verkaufen wollen. <span class="tag tag-a">A</span>
+  </div>
+
+  
+  <!-- Quellenverzeichnis -->
+  <div style="font-family:var(--m);font-size:7pt;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:32px;margin-bottom:8px">Quellenverzeichnis</div>
+  <table style="width:100%;border-collapse:collapse;margin-bottom:24px">
+    <tr><td style="padding:4px 8px;font-family:var(--m);font-size:7pt;color:var(--accent);vertical-align:top">[1]</td><td style="padding:4px 8px;font-size:8pt"><a href="https://stadtbranchenbuch.com/glashuette" target="_blank" rel="noopener" style="color:var(--accent)">Stadtbranchenbuch Glashütte</a></td><td style="padding:4px 8px;font-size:7.5pt;color:var(--muted)">Firmeneintrag</td></tr>
+    <tr><td style="padding:4px 8px;font-family:var(--m);font-size:7pt;color:var(--accent);vertical-align:top">[2]</td><td style="padding:4px 8px;font-size:8pt"><a href="https://www.sab.sachsen.de" target="_blank" rel="noopener" style="color:var(--accent)">SAB — EFRE</a></td><td style="padding:4px 8px;font-size:7.5pt;color:var(--muted)">Generische Bedingungen</td></tr>
+  </table>
+
+  <div style="border:1px solid var(--border2);border-radius:8px;padding:12px 16px;background:rgba(192,57,43,.02);margin:32px 0 0">
+    <div style="font-family:var(--m);font-size:7pt;font-weight:600;color:var(--red);margin-bottom:4px">Transparenzhinweis — Hohes Unsicherheitsniveau</div>
+    <div style="font-size:7.5pt;color:var(--text2);line-height:1.6">
+      Diese Analyse enthält überwiegend Annahmen <span class="tag tag-a">A</span>. Einzige belegte Fakten: Firmenname, Branche und Ortsteil (Stadtbranchenbuch Glashütte). Mitarbeiterzahl, Umsatz, Kundenstamm und konkreter KI-Bedarf sind unbekannt. Förderfähigkeit nicht geprüft.
+    </div>
+  </div>
+
+  <footer class="ftr">© 2026 Ainary Ventures · florian@ainaryventures.com · ainaryventures.com</footer>
+</div>
+<script>
+function updateClock(){const d=new Date();document.getElementById('clock').textContent=d.toLocaleDateString('de-DE',{weekday:'short'})+' '+d.toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'});}
+updateClock();setInterval(updateClock,10000);
+</script>
+</body>
+</html>
