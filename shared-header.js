@@ -24,17 +24,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const style = active
       ? "padding:6px 14px;border-bottom:2px solid var(--accent);color:var(--accent);font-weight:500"
       : "padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)";
-    return '<a href="' + t.href + '" style="' + style + '">' + t.label + '</a>';
+    return '<a href="' + t.href + '" style="' + style + '" aria-label="' + t.label + '">' + t.label + '</a>';
   }).join("");
 
   slot.innerHTML =
-    '<div class="portal-hdr">' +
+    '<a href="#main-content" class="skip-link">Zum Inhalt springen</a>' +
+    '<div class="portal-hdr" role="banner">' +
       '<div style="display:flex;align-items:center;gap:8px">' +
         '<a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit">' +
           '<span class="brand-dot"></span><span class="brand-name">Ainary</span>' +
         '</a>' +
         '<span style="color:var(--border2);margin:0 2px">·</span>' +
-        '<span style="color:var(--light);cursor:default">Abmelden</span>' +
+        '<span style="color:var(--light-text);cursor:default">Abmelden</span>' +
       '</div>' +
       '<div class="sh-center" style="display:flex;align-items:center;gap:8px;color:var(--muted);font-family:var(--m);font-size:8pt">' +
         '<span>Glashütte</span><span>☁ 3°C</span>' +
@@ -50,6 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
     '<div class="sh-nav" style="display:flex;gap:0;font-family:var(--m);font-size:7.5pt;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap">' +
       navHTML +
     '</div>';
+
+  // Mark as loaded (prevents layout shift flash)
+  slot.classList.add("loaded");
 
   // Live clock
   function updateClock() {

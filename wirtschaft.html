@@ -85,6 +85,7 @@ tr:hover{background:rgba(157,127,59,.03)}
 <link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
 <script src="shared-footer.js" defer></script><meta property="og:title" content="Wirtschaft — Ainary · Glashütte">
 <meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:image" content="https://florianziesche.github.io/ainary-demo-v11/og-image.svg">
 <meta property="og:type" content="website">
 <meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
@@ -132,6 +133,11 @@ tr:hover{background:rgba(157,127,59,.03)}
     <span><span class="tag tag-j">J</span> Judgment — Einschätzung</span>
     <span><span class="tag tag-a">A</span> Assumption — Annahme, unbelegt</span>
   </div>
+
+  <!-- Search -->
+  <input type="text" id="firm-search" placeholder="Firma suchen..." oninput="filterFirms(this.value)"
+    style="width:100%;max-width:400px;padding:8px 14px;border:1px solid var(--border2);border-radius:6px;font-family:var(--f);font-size:9pt;color:var(--text);margin-bottom:16px;outline:none;transition:border-color .15s"
+    onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border2)'">
 
   <!-- Category Filters -->
   <div id="cat-filters" style="display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap">
@@ -361,5 +367,24 @@ tr:hover{background:rgba(157,127,59,.03)}
 
 
 <div id="shared-footer"></div>
+<script>
+// Category filter
+function filterCat(cat){
+  document.querySelectorAll('.cf').forEach(b=>{b.classList.remove('active')});
+  document.getElementById('cf-'+cat).classList.add('active');
+  ['uhren','gewerbe','kommunen'].forEach(s=>{
+    const el=document.getElementById('sec-'+s);
+    if(el) el.style.display=(cat==='all'||cat===s)?'':'none';
+  });
+}
+// Text search across all tables
+function filterFirms(q){
+  q=q.toLowerCase();
+  document.querySelectorAll('table tbody tr').forEach(row=>{
+    const text=row.textContent.toLowerCase();
+    row.style.display=(!q||text.includes(q))?'':'none';
+  });
+}
+</script>
 </body>
 </html>

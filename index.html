@@ -267,6 +267,7 @@
 <script src="shared-footer.js" defer></script>
 <meta property="og:title" content="Übersicht — Ainary · Glashütte">
 <meta property="og:description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
+<meta property="og:image" content="https://florianziesche.github.io/ainary-demo-v11/og-image.svg">
 <meta property="og:type" content="website">
 <meta name="description" content="KI-Assistent für Glashütte — Echte Daten, echte Analysen.">
 </head>
@@ -326,7 +327,7 @@
 
   <a href="daily-intel-buergermeister.html" class="featured">
     <div class="featured-top">
-      <span class="featured-title">Daily Intel — 20. Feb 2026</span>
+      <span class="featured-title">Daily Intel — 22. Feb 2026</span>
       <span class="featured-badge">Neu</span>
     </div>
     <div class="featured-body">12 Meldungen aus 8 Quellen. 3 Handlungsempfehlungen.</div>
@@ -360,6 +361,14 @@
     .tnode.center{border-color:var(--accent);border-width:1.5px}
     .tnode.center .tdot{width:10px;height:10px;box-shadow:0 0 10px rgba(157,127,59,.5)}
     .tnode.center .tname{font-size:9pt;font-weight:700}
+    
+    /* Mobile: Replace absolute map with vertical grid list */
+    @media (max-width: 700px) {
+      .tmap { display: grid; grid-template-columns: 1fr; gap: 8px; height: auto; }
+      .tmap svg { display: none; }
+      .tnode { position: static !important; transform: none !important; }
+      .tnode .tname, .tnode .tmeta { white-space: normal; }
+    }
   </style>
 
   <div style="border:1px solid var(--border2);border-radius:8px;padding:20px 20px 12px;background:var(--surface);margin-bottom:32px">
