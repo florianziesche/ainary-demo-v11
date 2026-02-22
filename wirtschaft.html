@@ -80,13 +80,61 @@ tr:hover{background:rgba(157,127,59,.03)}
   .cta-request{font-family:var(--m);font-size:7pt;color:var(--light);white-space:nowrap}
   .cta-request:hover{color:var(--muted)}
 </style>
-<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="cta-footer.js" defer></script><script src="shared-header.js" defer></script>
-<script src="shared-footer.js" defer></script>
-</head>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script><script src="cta-footer.js" defer></script></head>
 <body>
 <div class="page">
 
-  <div id="shared-header"></div>
+  <div class="portal-hdr">
+    <div class="portal-left"><a href="index.html" style="display:flex;align-items:center;gap:8px"><div class="brand-dot"></div><span class="brand-name">Ainary</span></a> <span style="color:var(--border2);margin:0 4px">·</span> <span style="color:var(--light)">Abmelden</span></div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:8pt;color:var(--muted)">Glashütte <span>☁ 3°C</span></div>
+    <div style="display:flex;align-items:center;gap:8px;font-family:var(--m);font-size:8pt;color:var(--muted)"><span id="live-date"></span> <span id="live-time"></span></div>
+  </div>
+
+  <!-- Shared Header -->
+  <div style="font-size:22pt;font-weight:700;letter-spacing:-.02em;margin-bottom:2px"><span id="greeting">Guten Morgen</span>, Herr Gleißberg.</div>
+  <div style="font-size:10pt;color:var(--text2);margin-bottom:4px">Ihre Wochen-Übersicht für Glashütte.</div>
+  <div style="height:1px;background:var(--border2);margin-bottom:8px"></div>
+
+  <!-- Tabs -->
+  <div style="display:flex;gap:0;font-family:var(--m);font-size:7.5pt;margin-bottom:24px">
+    <a href="index.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Übersicht</a>
+    <a href="analyse.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Analyse</a>
+    <a href="projekte.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Projekte</a>
+    <a href="dokumente.html" style="padding:6px 14px;border-bottom:2px solid transparent;color:var(--light)">Dokumente</a>
+    <a href="wirtschaft.html" style="padding:6px 14px;border-bottom:2px solid var(--accent);color:var(--accent);font-weight:500">Wirtschaft</a>
+  </div>
+
+  <div id="mia-slot"></div>
+
+
+  <!-- Hero -->
+  <div style="font-size:20pt;font-weight:700;letter-spacing:-.02em;margin-bottom:4px">Wirtschaftsstandort Glashütte</div>
+  <div style="font-size:10pt;color:var(--text2);margin-bottom:4px">11 Uhrenhersteller. Über 1.000 Arbeitsplätze. Eine Weltmarke.</div>
+  <div style="font-family:var(--m);font-size:7pt;color:var(--light);margin-bottom:24px">Ainary Wirtschaftsanalyse · Stand Feb 2026 · Quellen: Wikipedia, Xing, LeadIQ, SZ, Stadt Glashütte</div>
+
+  <!-- KPIs -->
+  <div class="kpi-row">
+    <div class="kpi">
+      <div class="kpi-val">167</div>
+      <div class="kpi-label">Unternehmen erfasst</div>
+      <div class="kpi-sub">davon 11 Uhrenhersteller <span class="tag tag-e">E</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">~2.000</div>
+      <div class="kpi-label">Arbeitsplätze Uhrenindustrie</div>
+      <div class="kpi-sub">inkl. Zulieferer <span class="tag tag-i">I</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val">50%</div>
+      <div class="kpi-label">Wertschöpfung in Glashütte</div>
+      <div class="kpi-sub">Gesetzliche Mindestanforderung <span class="tag tag-e">E</span></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val" style="color:var(--green)">Stabil</div>
+      <div class="kpi-label">Branchentrend</div>
+      <div class="kpi-sub">Luxussegment resilient <span class="tag tag-j">J</span></div>
+    </div>
+  </div>
 
   <!-- Legend -->
   <div class="legend">
@@ -293,16 +341,33 @@ tr:hover{background:rgba(157,127,59,.03)}
   </div><!-- /sec-gewerbe -->
 
   <div id="sec-kommunen">
-  <div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border:1px solid var(--border2);border-radius:8px;background:var(--surface);margin:48px 0 24px">
-    <div>
-      <div style="font-weight:600;font-size:10pt">22 Kommunen im Digitalisierungsvergleich</div>
-      <div style="font-size:8pt;color:var(--text2)">Digitalisierungs-Stufen, Strukturvergleich, Benchmarks. Glashütte: Stufe Initial.</div>
-    </div>
-    <a href="vergleich.html" style="font-family:var(--m);font-size:8pt;color:var(--accent);font-weight:500;white-space:nowrap">Vergleich ansehen →</a>
+  <!-- KOMMUNEN-VERGLEICH -->
+  <div class="sec-label" style="margin-top:48px">Kommunen-Vergleich</div>
+  <div class="sec-title">20 Kommunen — Wie digital ist Ihre Gemeinde?</div>
+  <div style="font-family:var(--m);font-size:7pt;color:var(--light);margin-bottom:16px">Ainary Kommunen-Tracker · Stand Feb 2026 · Daten: Destatis, Bitkom, dbb, KGSt</div>
+
+  <a href="vergleich.html" style="display:inline-block;margin-bottom:24px;padding:8px 16px;border:1px solid var(--accent);border-radius:4px;font-family:var(--m);font-size:8pt;color:var(--accent);transition:all .12s">Vollständigen Vergleich ansehen &rarr;</a>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px">
+    <div class="kpi"><div class="kpi-val">22</div><div class="kpi-label">Kommunen erfasst</div><div class="kpi-sub">10 Sachsen · 12 bundesweit</div></div>
+    <div class="kpi"><div class="kpi-val">~4.200</div><div class="kpi-label">Verwaltungsmitarbeiter</div><div class="kpi-sub">Schätzung · 13 VZÄ/1.000 EW</div></div>
+    <div class="kpi"><div class="kpi-val">33%</div><div class="kpi-label">Rente bis 2030</div><div class="kpi-sub">dbb Beamtenbund 2023</div></div>
+    <div class="kpi"><div class="kpi-val" style="color:var(--red)">~€8,4M</div><div class="kpi-label">Fördermittel identifiziert</div><div class="kpi-sub">Summe alle 20 Kommunen</div></div>
   </div>
+
+  <div id="k-filters" style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap"></div>
+  <div class="t-wrap"><table><thead><tr>
+    <th>#</th><th>Kommune</th><th>Einwohner</th><th>Mitarbeiter</th><th>Rente 2030</th><th>Digital-Score</th><th>Potenzial</th><th>Status</th><th></th>
+  </tr></thead><tbody id="k-body"></tbody></table></div>
+  <div style="font-family:var(--m);font-size:6.5pt;color:var(--light);margin-top:8px;text-align:right">Mitarbeiter geschätzt (13 VZÄ/1.000 EW) · Rente 33% (dbb) · Digital-Score: Ainary-Methodik</div>
+
   </div><!-- /sec-kommunen -->
 
-  <div id="shared-footer"></div>
+  <footer class="ftr">
+    <span>© 2026 Ainary</span><span>·</span>
+    <a href="https://ainaryventures.com">ainaryventures.com</a><span>·</span>
+    <span>florian@ainaryventures.com</span>
+  </footer>
+
 </div>
 
 <script>
