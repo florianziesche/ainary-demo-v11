@@ -27,13 +27,42 @@
   .donate .detail{font-family:var(--m);font-size:7.5pt;color:var(--muted);margin-top:8px}
   @media(max-width:640px){.values-grid{grid-template-columns:1fr}}
 </style>
-<script src="shared-header.js" defer></script>
-<script src="shared-footer.js" defer></script>
 </head>
 <body>
 <div class="page">
 
-  <div id="shared-header"></div>
+  <!-- Header -->
+  <div class="hdr">
+    <div class="hdr-left">
+      <a href="index.html" class="brand-link"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
+      <span class="hdr-sep">·</span>
+      <span style="font-size:7.5pt;color:#bbb">Abmelden</span>
+    </div>
+    <div class="hdr-center">
+      <span class="hdr-loc"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Glashütte</span>
+      <span class="hdr-weather">☁ 3°C</span>
+      <span class="hdr-date">Do, 20.02.2026</span>
+    </div>
+    <div class="hdr-right">
+      <a href="verwalten.html" class="hdr-trial">13 Tage</a>
+      <a href="verwalten.html" class="hdr-credits"></a>
+    </div>
+  </div>
+
+  <a href="index.html" class="back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Übersicht</a>
+
+  <h1>Über Ainary</h1>
+  <div class="subtitle">KI-gestützte Recherche für Menschen die Besseres zu tun haben.</div>
+
+  <div class="sec">
+    <h2>Was wir glauben</h2>
+    <div class="values-grid">
+      <div class="value-item"><h4>Menschen helfen</h4><p>Wir bauen Werkzeuge die Zeit schenken — für die Arbeit die wirklich zählt.</p></div>
+      <div class="value-item"><h4>Ehrlichkeit als Standard</h4><p>Jede Aussage getaggt. Jede Unsicherheit benannt. Credibility is our currency.</p></div>
+      <div class="value-item"><h4>Gemeinschaft stärken</h4><p>Wissen teilen macht alle stärker. Deshalb die Empfehlen-Funktion.</p></div>
+      <div class="value-item"><h4>Gutes tun</h4><p>5% unseres Umsatzes für lokale Projekte. Nicht weil es gut aussieht — weil es richtig ist.</p></div>
+    </div>
+  </div>
 
   <div class="sec">
     <h2>Aktuelle Spendenaktion</h2>
@@ -60,7 +89,14 @@
       <div class="detail">Oder: Talk to Mia im Portal — sie leitet weiter.</div>
     </div>
   </div>
-  <div id="shared-footer"></div>
+
+  <!-- Footer -->
+  <footer style="margin-top:24px;padding-top:14px;border-top:1px solid #d0d0d0;font-family:'JetBrains Mono',monospace;font-size:7pt;color:#bbb;display:flex;justify-content:center;gap:6px;flex-wrap:wrap">
+    <span>© 2026 Ainary</span><span>·</span>
+    <a href="methodik.html" style="color:#bbb;text-decoration:none">Methodik</a><span>·</span>
+    <a href="#" style="color:#bbb;text-decoration:none">Datenschutz</a><span>·</span>
+    <span>Verschlüsselt</span>
+  </footer>
 </div>
 </body>
 </html>

@@ -46,7 +46,139 @@
 <body>
 <div class="page">
 
-  <div id="shared-header">  <div id="shared-footer"></div>
+  <div id="shared-header"></div>
+
+  <div id="mia-slot"></div>
+
+  <!-- Shared KPIs -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px">
+    <div style="border:1px solid var(--border2);border-radius:8px;padding:16px;text-align:center;background:var(--surface)">
+      <div style="font-family:var(--m);font-size:14pt;font-weight:700">6</div>
+      <div style="font-size:9pt;color:var(--text2);margin-top:2px">Dokumente verfügbar</div>
+      <div style="font-family:var(--m);font-size:7pt;color:var(--light);margin-top:2px">Präsentation + 4 Analysen + Methodik</div>
+    </div>
+    <div style="border:1px solid var(--border2);border-radius:8px;padding:16px;text-align:center;background:var(--surface)">
+      <div style="font-family:var(--m);font-size:14pt;font-weight:700">79</div>
+      <div style="font-size:9pt;color:var(--text2);margin-top:2px">Quellen insgesamt</div>
+      <div style="font-family:var(--m);font-size:7pt;color:var(--light);margin-top:2px">Über alle Analysen</div>
+    </div>
+    <div style="border:1px solid var(--border2);border-radius:8px;padding:16px;text-align:center;background:var(--surface)">
+      <div style="font-family:var(--m);font-size:14pt;font-weight:700">3</div>
+      <div style="font-size:9pt;color:var(--text2);margin-top:2px">In Vorbereitung</div>
+      <div style="font-family:var(--m);font-size:7pt;color:var(--light);margin-top:2px">KI-Konzept, 2 Research Reports</div>
+    </div>
+  </div>
+  <div style="text-align:right;font-family:var(--m);font-size:7pt;color:var(--light);margin-bottom:8px">Stand: Feb 2026 · Alle Dokumente mit Quellenverzeichnis</div>
+
+  <!-- PRÄSENTATIONEN -->
+  <div class="sec">
+    <div class="sec-label">Präsentationen</div>
+    <div class="sec-title">Vorträge und Pitch-Decks</div>
+  </div>
+
+  <div class="file-list">
+    <a href="https://pitch-deck-indol-eta.vercel.app/glashuette-v8.html" target="_blank" class="file-item">
+      <div class="file-icon ppt">PPT</div>
+      <div class="file-info">
+        <div class="file-name">KI-Assistent für Glashütte — Präsentation</div>
+        <div class="file-meta">glashuette-v8.html · 9 Slides · Feb 2026</div>
+      </div>
+      <div class="file-action">Öffnen →</div>
+    </a>
+  </div>
+
+  <!-- ANALYSEN -->
+  <div class="sec">
+    <div class="sec-label">Analysen</div>
+    <div class="sec-title">Recherche-Ergebnisse</div>
+  </div>
+
+  <div class="file-list">
+    <a href="analyse.html" class="file-item">
+      <div class="file-icon link">DOC</div>
+      <div class="file-info">
+        <div class="file-name">Personalanalyse — Verwaltung und Betrieb</div>
+        <div class="file-meta">Evidence Chain · Unit Charts · 79 Quellen</div>
+      </div>
+      <div class="file-action">Öffnen →</div>
+    </a>
+    <a href="vergleich.html" class="file-item">
+      <div class="file-icon link">DOC</div>
+      <div class="file-info">
+        <div class="file-name">Digitalisierungsvergleich — 22 Kommunen</div>
+        <div class="file-meta">Digital-Score · Reifegradstufen · 34 Quellen</div>
+      </div>
+      <div class="file-action">Öffnen →</div>
+    </a>
+    <a href="analyse-foerdermittel.html" class="file-item">
+      <div class="file-icon link">DOC</div>
+      <div class="file-info">
+        <div class="file-name">Fördermittel-Komplettscan 2026</div>
+        <div class="file-meta">11 Programme · 23 Quellen · 78% Confidence</div>
+      </div>
+      <div class="file-action">Öffnen →</div>
+    </a>
+    <a href="wirtschaft.html" class="file-item">
+      <div class="file-icon link">DOC</div>
+      <div class="file-info">
+        <div class="file-name">Wirtschaftsstandort Glashütte</div>
+        <div class="file-meta">167 Unternehmen · 12 Einzelanalysen</div>
+      </div>
+      <div class="file-action">Öffnen →</div>
+    </a>
+  </div>
+
+  <!-- REFERENZ -->
+  <div class="sec">
+    <div class="sec-label">Referenz</div>
+    <div class="sec-title">Methodik und Transparenz</div>
+  </div>
+
+  <div class="file-list">
+    <a href="methodik.html" class="file-item">
+      <div class="file-icon link">DOC</div>
+      <div class="file-info">
+        <div class="file-name">Methodik — So arbeitet Ainary</div>
+        <div class="file-meta">Confidence-Modell · E/I/J/A · Digital-Score</div>
+      </div>
+      <div class="file-action">Öffnen →</div>
+    </a>
+  </div>
+
+  <!-- In Vorbereitung -->
+  <div class="sec">
+    <div class="sec-label">In Vorbereitung</div>
+    <div class="sec-title">Nächste Dokumente</div>
+  </div>
+
+  <div class="file-list">
+    <div class="file-item" style="opacity:.5">
+      <div class="file-icon folder">—</div>
+      <div class="file-info">
+        <div class="file-name">KI-Konzept Verwaltung (ausführlich)</div>
+        <div class="file-meta">Basierend auf Projektseite · Fertig KW 9</div>
+      </div>
+      <div class="file-action" style="color:var(--light)">Bald</div>
+    </div>
+    <div class="file-item" style="opacity:.5">
+      <div class="file-icon folder">—</div>
+      <div class="file-info">
+        <div class="file-name">Bürgerstimmung — Deep Dive</div>
+        <div class="file-meta">Erweiterte Sentiment-Analyse · 16 Ortsteile</div>
+      </div>
+      <div class="file-action" style="color:var(--light)">Bald</div>
+    </div>
+    <div class="file-item" style="opacity:.5">
+      <div class="file-icon folder">—</div>
+      <div class="file-info">
+        <div class="file-name">OZG-Umsetzungsplan Glashütte</div>
+        <div class="file-meta">Basierend auf Digitalisierungsanalyse</div>
+      </div>
+      <div class="file-action" style="color:var(--light)">Bald</div>
+    </div>
+  </div>
+
+  <div id="shared-footer"></div>
 </div>
 
 <script>
