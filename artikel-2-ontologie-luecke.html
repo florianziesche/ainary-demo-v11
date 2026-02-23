@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Die Ontologie-Lücke — Florian Ziesche · Ainary</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#fafafa;--surface:#fff;--border:#d0d0d0;--border2:#e8e8e8;
+  --text:#1a1a1a;--text2:#444;--muted:#777;--light:#bbb;
+  --accent:#9d7f3b;--green:#2d8a4e;--red:#c0392b;--amber:#b45309;
+  --f:'Inter',-apple-system,sans-serif;--m:'JetBrains Mono',monospace;
+}
+body{font-family:var(--f);color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.7}
+.page{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+.pub{font:500 .7rem/1 var(--m);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.pub-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:middle}
+h1{font-size:2.2rem;font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:12px}
+.subtitle{font-size:1.1rem;color:var(--text2);line-height:1.5;margin-bottom:24px}
+.meta{font:.75rem/1 var(--m);color:var(--muted);padding-bottom:24px;border-bottom:1px solid var(--border2);margin-bottom:32px;display:flex;gap:16px}
+h2{font-size:1.3rem;font-weight:600;letter-spacing:-.02em;margin:40px 0 12px}
+p{margin-bottom:16px;font-size:1rem}
+blockquote{border-left:3px solid var(--accent);padding:12px 20px;margin:24px 0;background:var(--surface);font-style:italic;color:var(--text2)}
+strong{font-weight:600}
+code{font-family:var(--m);font-size:.85rem;background:var(--surface);border:1px solid var(--border2);padding:1px 6px;border-radius:3px}
+
+/* Comparison */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0}
+.compare-col{background:var(--surface);border:1px solid var(--border2);border-radius:6px;padding:20px}
+.compare-title{font:600 .85rem/1 var(--m);margin-bottom:12px}
+.compare-bad{color:var(--red)}
+.compare-good{color:var(--green)}
+.compare-list{list-style:none;padding:0}
+.compare-list li{font-size:.9rem;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border2)}
+.compare-list li:last-child{border:none}
+
+/* Code Block */
+.code-block{background:#1a1a1a;color:#e0e0e0;border-radius:6px;padding:20px 24px;margin:24px 0;font:.8rem/1.6 var(--m);overflow-x:auto}
+.code-block .comment{color:#666}
+.code-block .key{color:#9d7f3b}
+.code-block .val{color:#2d8a4e}
+.code-block .warn{color:#c0392b}
+
+/* Diagram */
+.diagram{background:var(--surface);border:1px solid var(--border2);border-radius:6px;padding:24px;margin:32px 0;text-align:center}
+.diagram-title{font:.7rem/1 var(--m);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
+.diagram-flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap}
+.diagram-box{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:8px 16px;font:.8rem/1 var(--m);color:var(--text)}
+.diagram-arrow{color:var(--light);font-size:1.2rem}
+.diagram-box-accent{background:rgba(157,127,59,0.08);border-color:var(--accent);color:var(--accent)}
+
+/* Stat */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
+.stat{background:var(--surface);border:1px solid var(--border2);border-radius:6px;padding:20px;text-align:center}
+.stat-val{font:700 2rem/1 var(--m);color:var(--text);margin-bottom:4px}
+.stat-label{font-size:.8rem;color:var(--muted)}
+.stat-src{font:.6rem/1 var(--m);color:var(--light);margin-top:6px}
+.ev{display:inline-block;font:.55rem/1 var(--m);padding:1px 5px;border-radius:2px;vertical-align:middle;margin-left:4px}
+.ev-e{background:rgba(45,138,78,0.12);color:var(--green)}
+.ev-i{background:rgba(91,138,191,0.12);color:#5b8abf}
+
+.callout{background:var(--surface);border:1px solid var(--border2);border-radius:6px;padding:20px 24px;margin:32px 0}
+.callout-title{font:600 .85rem/1 var(--f);color:var(--text);margin-bottom:8px}
+.callout-body{font-size:.9rem;color:var(--text2);line-height:1.6}
+.footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--border2);font-size:.8rem;color:var(--muted)}
+.footer a{color:var(--accent);text-decoration:none}
+@media(max-width:640px){.compare,.stat-row{grid-template-columns:1fr}.page{padding:32px 16px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="pub"><span class="pub-dot"></span>Ainary · KI-Strategie für Entscheider</div>
+<h1>Warum 87% der KI-Projekte scheitern: Die Ontologie-Lücke</h1>
+<div class="subtitle">Das teuerste Problem in der KI hat nichts mit Modellen zu tun. Es ist die Frage, die niemand stellt: Was SIND eigentlich unsere Daten?</div>
+<div class="meta">
+  <span>Florian Ziesche</span>
+  <span>23. Februar 2026</span>
+  <span>8 min</span>
+</div>
+
+<p>Letzte Woche habe ich ein politisches Intelligence-System gebaut. 13 Versionen in einem Tag. Die ersten 11 Versionen waren Feature-getrieben: "Mach das klickbar", "Füg eine Heatmap hinzu", "Zeig Verbindungen." Version 12 war der Wendepunkt — und der Grund, warum ich diesen Artikel schreibe.</p>
+
+<p>Was in Version 12 passiert ist: Ich habe aufgehört, Features zu bauen. Und angefangen, meine Daten zu definieren.</p>
+
+<h2>Was eine Ontologie ist (und warum Sie eine brauchen)</h2>
+
+<p>Eine Ontologie beantwortet drei Fragen:</p>
+
+<div class="diagram">
+  <div class="diagram-title">Die drei Fragen</div>
+  <div class="diagram-flow">
+    <div class="diagram-box">Was KANN existieren?</div>
+    <div class="diagram-arrow">→</div>
+    <div class="diagram-box">Welche Eigenschaften hat es?</div>
+    <div class="diagram-arrow">→</div>
+    <div class="diagram-box diagram-box-accent">Wie hängt es zusammen?</div>
+  </div>
+</div>
+
+<p>Palantir — das Unternehmen, das für CIA, US Army und mittlerweile BMW und Airbus arbeitet — hat sein gesamtes Geschäftsmodell auf einer Ontologie gebaut. Nicht auf Dashboards. Nicht auf KI-Modellen. Auf der Definition, was ein "Objekt" in ihrem System ist.</p>
+
+<blockquote>Wenn es gerendert wird, ist es ein Objekt. Wenn es ein Objekt ist, hat es eine Definition. Wenn es keine Definition hat, gehört es nicht ins System.</blockquote>
+
+<h2>Das €4,4 Milliarden-Problem</h2>
+
+<p>Die EU verliert jedes Jahr €4,4 Milliarden an Fördermitteln. Nicht weil die Programme schlecht sind. Sondern weil die Daten in den Verwaltungen nicht miteinander reden.</p>
+
+<div class="compare">
+  <div class="compare-col">
+    <div class="compare-title compare-bad">✗ Ohne Ontologie</div>
+    <ul class="compare-list">
+      <li>Fördermittel in Excel</li>
+      <li>Fristen im Kalender</li>
+      <li>Zuständigkeiten im Kopf</li>
+      <li>Bürgerbeschwerden per Mail</li>
+      <li>Jedes System eigene Sprache</li>
+    </ul>
+  </div>
+  <div class="compare-col">
+    <div class="compare-title compare-good">✓ Mit Ontologie</div>
+    <ul class="compare-list">
+      <li>Fördermittel = Objekt mit Frist, Betrag, Status</li>
+      <li>Frist = verknüpft mit Zuständigkeit + Projekt</li>
+      <li>Zuständigkeit = Person → Abteilung → Gemeinde</li>
+      <li>Beschwerde = verknüpft mit Thema → Projekt → Frist</li>
+      <li>Ein System, eine Sprache</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Warum Feature-First ein Anti-Pattern ist</h2>
+
+<p>Mein Intelligence-System hatte nach 11 Versionen:</p>
+
+<div class="stat-row">
+  <div class="stat"><div class="stat-val">28</div><div class="stat-label">klickbare Elemente</div></div>
+  <div class="stat"><div class="stat-val">6</div><div class="stat-label">Tab-Ansichten</div></div>
+  <div class="stat"><div class="stat-val">0</div><div class="stat-label">konsistente Datenstruktur</div></div>
+</div>
+
+<p>Jeder onclick-Handler war manuell geschrieben. Jede Farbe war ad-hoc gewählt. Jeder Datenbank-Eintrag hatte ein anderes Schema. Es funktionierte — für 5 Personen. Es wäre bei 50 zusammengebrochen.</p>
+
+<p>Version 12 führte eine einzige Funktion ein: <code>obj()</code>. Sie wrappt jeden Datenpunkt automatisch in ein klickbares Element. Wenn der Datenpunkt keine Definition hat, bekommt er einen roten Rand — sichtbar für den Entwickler, unsichtbar für den Nutzer.</p>
+
+<div class="code-block">
+<span class="comment">// Vorher: Ad-hoc, pro Element</span>
+<span class="warn">&lt;span onclick="showDetail('protschka-vs')"&gt;</span>VS-Relevanz<span class="warn">&lt;/span&gt;</span>
+
+<span class="comment">// Nachher: Ontologie-gesteuert, automatisch</span>
+<span class="val">obj(</span><span class="key">'VS-Relevanz'</span>, <span class="key">'protschka-vs'</span><span class="val">)</span>
+<span class="comment">// → Rendet klickbar wenn Definition existiert</span>
+<span class="comment">// → Rendet rot-gepunktet wenn Definition FEHLT</span>
+<span class="comment">// → Audit-Log zählt Coverage automatisch</span>
+</div>
+
+<p>Eine Zeile statt drei. Und die wichtigste Eigenschaft: <strong>Lücken werden sichtbar, nicht versteckt.</strong></p>
+
+<h2>Die 5 Gesetze einer guten Ontologie</h2>
+
+<p>Aus 80+ Projekten (BMW, Siemens, Bosch, und jetzt Kommunen) habe ich 5 Regeln destilliert:</p>
+
+<div class="callout">
+  <div class="callout-title">1. Jedes Datenelement existiert genau einmal</div>
+  <div class="callout-body">Duplikation = Inkonsistenz = Vertrauensverlust. Wenn eine Kontroverse in 3 Tabellen steht, gibt es 3 Versionen der Wahrheit.</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">2. Jedes Objekt hat 7 Felder. Nicht mehr, nicht weniger.</div>
+  <div class="callout-body">Titel, Typ, Beschreibung, Evidenz, Konfidenz, offene Lücken, verwandte Objekte. Ob es eine Person ist, eine Kontroverse oder eine Fördermittel-Frist — das Schema ist identisch.</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">3. Lücken sind Features</div>
+  <div class="callout-body">Jedes Objekt muss sagen, was es NICHT weiß. "Keine Daten, die Kausalität belegen" ist ehrlicher und nützlicher als eine halluzinierte Erklärung.</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">4. Schema vor Code</div>
+  <div class="callout-body">Erst definieren was existieren KANN, dann bauen wie es aussieht. Nicht umgekehrt. 11 Versionen Features, dann die Ontologie — das ist zu spät.</div>
+</div>
+
+<div class="callout">
+  <div class="callout-title">5. Auto-Generate > Manual Maintain</div>
+  <div class="callout-body">Wenn ein Detail-Eintrag automatisch aus bestehenden Daten generiert werden kann, darf er nicht manuell gepflegt werden. Manuelle Pflege skaliert nie.</div>
+</div>
+
+<h2>Was das für Ihr nächstes KI-Projekt bedeutet</h2>
+
+<p>Bevor Sie das nächste Dashboard bauen, die nächste KI-Integration planen, oder den nächsten Chatbot installieren — beantworten Sie eine Frage:</p>
+
+<blockquote>Was sind die 10 wichtigsten Objekte in Ihrem System? Haben sie alle das gleiche Schema?</blockquote>
+
+<p>Wenn die Antwort "nein" ist, haben Sie kein KI-Problem. Sie haben ein Ontologie-Problem. Und kein Modell der Welt wird das für Sie lösen.</p>
+
+<p>Die 87% der KI-Projekte, die scheitern, scheitern nicht an GPT-4, Claude oder Gemini. Sie scheitern daran, dass niemand die erste Frage gestellt hat: Was SIND eigentlich unsere Daten?</p>
+
+<div class="footer">
+  <p><strong>Florian Ziesche</strong> baut KI-Systeme, die auf Ontologien basieren — nicht auf Hoffnung. 12 Jahre KI-Erfahrung, €5M Funding, 80+ Enterprise-Projekte.</p>
+  <p style="margin-top:8px"><a href="https://ainaryventures.com">ainaryventures.com</a> · <a href="mailto:florian@ainaryventures.com">florian@ainaryventures.com</a></p>
+</div>
+
+</div>
+</body>
+</html>
