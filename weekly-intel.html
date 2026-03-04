@@ -173,25 +173,18 @@
   @media(max-width:640px){.page{padding:24px 16px}.xref-grid{grid-template-columns:1fr}.week-nav{flex-wrap:wrap}}
   @media print{.portal-hdr,.back,.deep-dive,.week-nav{display:none}body{font-size:9.5pt}.page{padding:0;max-width:100%}}
 </style>
+<script src="shared-header.js" defer></script>
+<script src="shared-footer.js" defer></script>
+<link rel="stylesheet" href="mia-chat.css"><script src="mia-chat.js" defer></script>
 <meta property="og:title" content="Weekly Intel — Glashütte · KW 10 · 2026">
 <meta property="og:description" content="Ainary Weekly Intelligence Briefing für Glashütte">
 </head>
 <body>
 <div class="page">
 
-  <!-- Portal Header -->
-  <div class="portal-hdr">
-    <div class="portal-brand">
-      <a href="index.html" style="display:flex;align-items:center;gap:8px;text-decoration:none"><span class="brand-dot"></span><span class="brand-name">Ainary</span></a>
-      <span style="color:var(--border2);margin:0 4px">·</span>
-      <span style="font-size:7.5pt;color:#bbb">Weekly Intel</span>
-    </div>
-    <div class="portal-right">
-      <span style="color:var(--muted)">Glashütte</span>
-      <span style="color:var(--border2)">·</span>
-      <a href="verwalten.html" style="color:var(--accent)">Dashboard</a>
-    </div>
-  </div>
+  <!-- Portal Header (injected by shared-header.js) -->
+  <div id="shared-header"></div>
+  <div id="mia-slot"></div>
 
   <a href="index.html" class="back"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Übersicht</a>
 
@@ -621,5 +614,6 @@
   </footer>
 
 </div>
+<div id="shared-footer"></div>
 </body>
 </html>
