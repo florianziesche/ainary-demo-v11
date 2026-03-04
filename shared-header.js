@@ -67,4 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   updateClock();
   setInterval(updateClock, 30000);
+
+  // Sync all greeting elements (Mia chat, kommunen, etc.)
+  var greetEls = ["mia-greeting", "greeting2"];
+  greetEls.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = greet;
+  });
 });
